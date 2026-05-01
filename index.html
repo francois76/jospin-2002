@@ -11,138 +11,6 @@
   <!--
 
   /* ================================================================
-     ANIMATIONS STYLE FLASH (remplacement natif de Macromedia Flash)
-     NB : exception volontaire aux standards 2002, Flash n'etant
-          plus supporte dans les navigateurs modernes.
-     ================================================================ */
-
-  /* --- Intro Flash --- */
-  #flash-intro {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: #2C0818;
-    z-index: 9999;
-    text-align: center;
-    overflow: hidden;
-  }
-
-  #flash-intro.fade-out {
-    animation: intro-disparait 0.6s ease-in forwards;
-  }
-
-  @keyframes intro-disparait {
-    0%   { opacity: 1; }
-    100% { opacity: 0; pointer-events: none; }
-  }
-
-  /* Logo qui arrive en vrille */
-  #intro-logo {
-    font-family: "Arial Black", Impact, Arial, sans-serif;
-    font-size: 80px;
-    color: #FFFF00;
-    text-shadow: 4px 4px 0 #FF0000, 8px 8px 0 #6B0830;
-    margin-top: 120px;
-    animation: logo-vrille 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
-  }
-
-  @keyframes logo-vrille {
-    0%   { transform: scale(6) rotate(720deg); opacity: 0; }
-    70%  { transform: scale(0.9) rotate(-10deg); opacity: 1; }
-    100% { transform: scale(1) rotate(0deg); opacity: 1; }
-  }
-
-  #intro-annee {
-    font-family: "Arial Black", Impact, Arial, sans-serif;
-    font-size: 52px;
-    color: #FFFFFF;
-    animation: logo-vrille 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
-  }
-
-  #intro-sous-titre {
-    color: #FFAACC;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    letter-spacing: 4px;
-    margin-top: 15px;
-    animation: sous-titre-apparait 1s ease 2.2s both;
-  }
-
-  @keyframes sous-titre-apparait {
-    0%   { opacity: 0; letter-spacing: 20px; }
-    100% { opacity: 1; letter-spacing: 4px; }
-  }
-
-  /* Barre de chargement */
-  #intro-loading-wrap {
-    width: 320px;
-    margin: 30px auto 0 auto;
-    animation: sous-titre-apparait 0.5s ease 1.5s both;
-  }
-
-  #intro-loading-bg {
-    width: 320px;
-    height: 22px;
-    background-color: #1A0810;
-    border: 2px solid #FFFF00;
-  }
-
-  #intro-loading-bar {
-    height: 22px;
-    width: 0%;
-    background-color: #FF0000;
-    animation: chargement 2.4s linear 1.5s both;
-  }
-
-  @keyframes chargement {
-    0%   { width: 0%;   background-color: #FF0000; }
-    40%  { width: 40%;  background-color: #FF8800; }
-    75%  { width: 75%;  background-color: #FFFF00; }
-    100% { width: 100%; background-color: #00FF00; }
-  }
-
-  #intro-loading-texte {
-    color: #CCCCCC;
-    font-family: "Courier New", monospace;
-    font-size: 11px;
-    margin-top: 6px;
-    animation: sous-titre-apparait 0.5s ease 1.5s both;
-  }
-
-  /* Bouton Passer l'intro */
-  #btn-skip {
-    display: none;
-    margin: 25px auto 0 auto;
-    background-color: transparent;
-    color: #888888;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 11px;
-    border: 1px solid #555555;
-    padding: 3px 10px;
-    cursor: pointer;
-  }
-
-  #btn-skip:hover {
-    color: #FFFFFF;
-    border-color: #FFFFFF;
-  }
-
-  /* Etoiles particules */
-  .etoile-particule {
-    position: absolute;
-    bottom: -20px;
-    font-size: 18px;
-    color: #FFFF00;
-    animation: etoile-monte linear infinite;
-    pointer-events: none;
-  }
-
-  @keyframes etoile-monte {
-    0%   { transform: translateY(0)   rotate(0deg);   opacity: 1; }
-    100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
-  }
-
-  /* ================================================================
      STYLES GENERAUX DU SITE
      ================================================================ */
 
@@ -312,44 +180,21 @@
     animation: clignotement 1s step-end infinite;
   }
 
+  /* ================================================================
+     BAS DEBIT : masquage initial des sections
+     ================================================================ */
+  body.bd-init #bandeau-principal,
+  body.bd-init #bandeau-defilant,
+  body.bd-init #contenu-principal,
+  body.bd-init #pied-de-page { display: none; }
+  body.bd-init { cursor: wait; }
+
   -->
   </style>
 
 </head>
 
-<body bgcolor="#F0D4DE" text="#000000" link="#8B0040" vlink="#660066" alink="#FF6600">
-
-
-<!-- ============================================================
-     INTRO STYLE FLASH
-     ============================================================ -->
-<div id="flash-intro">
-
-  <!-- Particules etoiles -->
-  <span class="etoile-particule" style="left:5%;  animation-duration:3.2s; animation-delay:0.0s;">&#9733;</span>
-  <span class="etoile-particule" style="left:12%; animation-duration:2.1s; animation-delay:0.4s;">&#9733;</span>
-  <span class="etoile-particule" style="left:22%; animation-duration:4.0s; animation-delay:0.9s;">&#9733;</span>
-  <span class="etoile-particule" style="left:33%; animation-duration:2.8s; animation-delay:0.2s;">&#9733;</span>
-  <span class="etoile-particule" style="left:45%; animation-duration:3.5s; animation-delay:0.7s;">&#9733;</span>
-  <span class="etoile-particule" style="left:57%; animation-duration:2.3s; animation-delay:1.1s;">&#9733;</span>
-  <span class="etoile-particule" style="left:68%; animation-duration:3.9s; animation-delay:0.3s;">&#9733;</span>
-  <span class="etoile-particule" style="left:78%; animation-duration:2.6s; animation-delay:0.6s;">&#9733;</span>
-  <span class="etoile-particule" style="left:88%; animation-duration:3.1s; animation-delay:1.3s;">&#9733;</span>
-  <span class="etoile-particule" style="left:95%; animation-duration:2.4s; animation-delay:0.1s;">&#9733;</span>
-
-  <div id="intro-logo">JOSPIN</div>
-  <div id="intro-annee">2002</div>
-  <div id="intro-sous-titre">CANDIDAT A LA PRESIDENCE DE LA REPUBLIQUE</div>
-
-  <div id="intro-loading-wrap">
-    <div id="intro-loading-bg">
-      <div id="intro-loading-bar"></div>
-    </div>
-    <div id="intro-loading-texte">Chargement... Ce site necessite Internet Explorer 5.5 ou Netscape 6</div>
-  </div>
-
-  <button id="btn-skip" onclick="skipIntro()">[ Passer l'intro ]</button>
-</div>
+<body class="bd-init" bgcolor="#F0D4DE" text="#000000" link="#8B0040" vlink="#660066" alink="#FF6600">
 
 
 <!-- ============================================================
@@ -417,7 +262,7 @@
       <!-- ======================================================
            BANDEAU DEFILANT
            ====================================================== -->
-      <table width="800" border="0" cellpadding="0" cellspacing="0">
+      <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant">
         <tr>
           <td width="90" bgcolor="#CC0000" align="center">
             <font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU :&nbsp;</b></font>
@@ -436,7 +281,7 @@
       <!-- ======================================================
            CONTENU PRINCIPAL : 3 COLONNES
            ====================================================== -->
-      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF" id="contenu-principal">
         <tr valign="top">
 
 
@@ -541,38 +386,6 @@
                     <b>&raquo; <a href="http://www.elysee.fr" class="lien-sidebar">Elysee.fr</a></b><br>
                     <b>&raquo; <a href="http://www.assemblee-nationale.fr" class="lien-sidebar">Assemblee Nationale</a></b>
                   </font>
-                </td>
-              </tr>
-            </table>
-
-            <br>
-
-            <!-- Partenaires bannières 88x31 -->
-            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#555555">
-              <tr>
-                <td bgcolor="#333333" align="center">
-                  <font face="Arial" size="1" color="#FFFFFF"><b>PARTENAIRES</b></font>
-                </td>
-              </tr>
-              <tr>
-                <td bgcolor="#FFFFFF" align="center">
-                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#CC0000">
-                    <tr><td align="center" valign="middle">
-                      <font face="Arial" size="1" color="#FFFFFF"><b>PARTI<br>SOCIALISTE</b></font>
-                    </td></tr>
-                  </table>
-                  <br>
-                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#008800">
-                    <tr><td align="center" valign="middle">
-                      <font face="Arial" size="1" color="#FFFFFF"><b>LES VERTS<br>2002</b></font>
-                    </td></tr>
-                  </table>
-                  <br>
-                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#000066">
-                    <tr><td align="center" valign="middle">
-                      <font face="Arial" size="1" color="#FFFFFF"><b>PCF<br>FRANCE</b></font>
-                    </td></tr>
-                  </table>
                 </td>
               </tr>
             </table>
@@ -913,7 +726,7 @@
       <!-- ======================================================
            PIED DE PAGE
            ====================================================== -->
-      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818">
+      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818" id="pied-de-page">
         <tr>
           <td align="center">
             <hr noshade size="2" color="#CC0000" width="780">

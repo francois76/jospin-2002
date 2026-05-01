@@ -3,33 +3,95 @@
 //  Compatible Netscape 6 / Internet Explorer 5.5
 // ============================================================
 
-// --- Intro Flash : suppression automatique ---
-function initIntro() {
-  var introEl = document.getElementById('flash-intro');
-  if (!introEl) return;
+// --- Simulation connexion bas debit 56k ---
+function initBasDebit() {
+  function rand(base, spread) {
+    return base + Math.floor(Math.random() * spread);
+  }
 
-  var btnSkip = document.getElementById('btn-skip');
+  var sectionHeader  = document.getElementById('bandeau-principal');
+  var sectionTicker  = document.getElementById('bandeau-defilant');
+  var sectionContenu = document.getElementById('contenu-principal');
+  var sectionPied    = document.getElementById('pied-de-page');
 
+  if (!sectionHeader) return;
+
+  // Stocker les src des images, puis les vider
+  var imgs    = document.getElementsByTagName('img');
+  var imgSrcs = [];
+  for (var i = 0; i < imgs.length; i++) {
+    imgSrcs[i] = imgs[i].getAttribute('src') || '';
+    if (imgSrcs[i]) {
+      imgs[i].src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+    }
+  }
+
+  // Delais aleatoires
+  var t1 = rand(1800, 600);       // ~2s  : header + ticker
+  var t2 = t1 + rand(900, 600);   // ~3s  : contenu
+  var t3 = t2 + rand(900, 600);   // ~4s  : images + curseur
+
+  // Etape 1 : header + ticker
   setTimeout(function() {
-    if (btnSkip) btnSkip.style.display = 'inline-block';
-  }, 2000);
+    if (sectionHeader) sectionHeader.style.display = 'table';
+    if (sectionTicker) sectionTicker.style.display = 'table';
+  }, t1);
 
+  // Etape 2 : contenu + pied de page
   setTimeout(function() {
-    finIntro();
-  }, 4500);
+    if (sectionContenu) sectionContenu.style.display = 'table';
+    if (sectionPied)    sectionPied.style.display    = 'table';
+  }, t2);
+
+  // Etape 3 : images + restaurer la classe bd-init
+  setTimeout(function() {
+    var imgs = document.getElementsByTagName('img');
+    for (var i = 0; i < imgs.length; i++) {
+      if (imgSrcs[i]) imgs[i].src = imgSrcs[i];
+    }
+    var b = document.body;
+    b.className = b.className.replace(/\bbd-init\b/g, '').trim();
+  }, t3);
 }
 
-function skipIntro() {
-  finIntro();
-}
+// --- Interception des clics : son + sablier + delai de navigation ---
+function initCliqueModem() {
+  var audio = null;
+  try { audio = new Audio('clic.mp3'); } catch(e) {}
 
-function finIntro() {
-  var introEl = document.getElementById('flash-intro');
-  if (!introEl) return;
-  introEl.classList.add('fade-out');
-  setTimeout(function() {
-    introEl.style.display = 'none';
-  }, 700);
+  document.addEventListener('click', function(e) {
+    var el = e.target;
+    while (el && el.nodeName !== 'A') {
+      el = el.parentNode;
+    }
+    if (!el || el.nodeName !== 'A') return;
+
+    var href = el.getAttribute('href');
+    if (!href) return;
+    // Ignorer mailto, javascript, ancres, et liens externes
+    if (href.indexOf('mailto:') === 0) return;
+    if (href.indexOf('javascript:') === 0) return;
+    if (href.charAt(0) === '#') return;
+    if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) return;
+
+    e.preventDefault();
+
+    // Son de clic immediat
+    if (audio) {
+      audio.currentTime = 0;
+      audio.play().catch(function() {});
+    }
+
+    // Sablier immediat
+    document.body.style.cursor = 'wait';
+
+    // Navigation differee (~2s)
+    var dest = el.href;
+    var delai = 1800 + Math.floor(Math.random() * 600);
+    setTimeout(function() {
+      window.location.href = dest;
+    }, delai);
+  });
 }
 
 // --- Compteur de visiteurs ---
@@ -65,9 +127,8 @@ function initNavRollover() {
   }
 }
 
-// --- Initialisation au chargement ---
-window.onload = function() {
-  initIntro();
-  initCompteur(2847);
-  initNavRollover();
-};
+// --- Execution immediate (script en fin de body, DOM pret) ---
+initBasDebit();
+initCliqueModem();
+initCompteur(2847);
+initNavRollover();

@@ -222,11 +222,18 @@
     vertical-align: middle;
   }
 
+  /* Bas debit : masquage initial */
+  body.bd-init #bandeau-principal,
+  body.bd-init #bandeau-defilant,
+  body.bd-init #contenu-principal,
+  body.bd-init #pied-de-page { display: none; }
+  body.bd-init { cursor: wait; }
+
   -->
   </style>
 </head>
 
-<body bgcolor="#F0D4DE" text="#000000" link="#8B0040" vlink="#660066" alink="#FF6600">
+<body class="bd-init" bgcolor="#F0D4DE" text="#000000" link="#8B0040" vlink="#660066" alink="#FF6600">
 
 <!-- ============================================================
      ZONE IMPRESSION (cachee a l'ecran, visible uniquement en impression)
@@ -445,7 +452,7 @@
     </table>
 
     <!-- MARQUEE -->
-    <table width="800" border="0" cellpadding="0" cellspacing="0">
+    <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant">
       <tr>
         <td width="90" bgcolor="#CC0000" align="center">
           <font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU :&nbsp;</b></font>
@@ -461,7 +468,7 @@
     </table>
 
     <!-- CONTENU : 2 COLONNES -->
-    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF" id="contenu-principal">
       <tr valign="top">
 
         <!-- COLONNE GAUCHE -->
@@ -765,7 +772,7 @@
     </table>
 
     <!-- PIED DE PAGE -->
-    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818">
+    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818" id="pied-de-page">
       <tr><td align="center">
         <hr noshade size="2" color="#CC0000" width="780">
         <font face="Arial" size="2" color="#CCCCCC">
