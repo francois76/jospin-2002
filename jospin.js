@@ -57,7 +57,13 @@ function initBasDebit() {
 // --- Interception des clics : son + sablier + delai de navigation ---
 function initCliqueModem() {
   var audio = null;
-  try { audio = new Audio('clic.mp3'); } catch(e) {}
+  try {
+    audio = new Audio('click.mp3');
+    audio.preload = 'auto';
+    audio.load();
+  } catch(e) {
+    console.log(e);
+  }
 
   document.addEventListener('click', function(e) {
     var el = e.target;
@@ -74,13 +80,13 @@ function initCliqueModem() {
     if (href.charAt(0) === '#') return;
     if (href.indexOf('http://') === 0 || href.indexOf('https://') === 0) return;
 
-    e.preventDefault();
-
-    // Son de clic immediat
+    // Son de clic immediat (avant preventDefault pour conserver le contexte user-gesture)
     if (audio) {
       audio.currentTime = 0;
       audio.play().catch(function() {});
     }
+
+    e.preventDefault();
 
     // Sablier immediat
     document.body.style.cursor = 'wait';
