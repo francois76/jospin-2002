@@ -1,0 +1,861 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="description" content="Faire un don a la campagne de Lionel Jospin - Carte de membre - Election Presidentielle 2002">
+  <meta name="keywords" content="Jospin, don, campagne, carte membre, 2002">
+  <title>Faire un Don - LIONEL JOSPIN 2002</title>
+
+  <style type="text/css">
+  <!--
+  body {
+    background-color: #DDEEFF;
+    margin: 0;
+    padding: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+  }
+  a:link    { color: #0000CC; }
+  a:visited { color: #660066; }
+  a:hover   { color: #FF0000; text-decoration: underline; }
+  a:active  { color: #FF6600; }
+
+  .lien-sidebar { color: #000080; font-size: 11px; text-decoration: none; }
+  .lien-sidebar:hover { color: #FF0000; background-color: #FFFFCC; }
+
+  @keyframes bandeau-shimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  #bandeau-principal {
+    background: linear-gradient(270deg, #990000, #CC0000, #000066, #CC0000, #990000);
+    background-size: 400% 400%;
+    animation: bandeau-shimmer 5s ease infinite;
+  }
+
+  @keyframes etoile-clignote {
+    0%,100% { color: #FFFF00; transform: scale(1);   }
+    50%      { color: #FFFFFF;  transform: scale(1.6); }
+  }
+  .etoile-clignote {
+    display: inline-block;
+    color: #FFFF00;
+    font-size: 18px;
+    animation: etoile-clignote 0.9s ease-in-out infinite;
+  }
+
+  @keyframes arc-en-ciel {
+    0%   { border-top-color: #FF0000; }
+    16%  { border-top-color: #FF8800; }
+    33%  { border-top-color: #FFFF00; }
+    50%  { border-top-color: #00CC00; }
+    66%  { border-top-color: #0000FF; }
+    83%  { border-top-color: #9900CC; }
+    100% { border-top-color: #FF0000; }
+  }
+  .hr-rainbow {
+    border: none;
+    border-top: 2px solid #FF0000;
+    animation: arc-en-ciel 1.5s linear infinite;
+    margin: 5px 0;
+  }
+
+  /* ============================================================
+     CARTE 3D (remplacement natif du widget Flash)
+     ============================================================ */
+  #carte-scene {
+    width: 340px;
+    height: 210px;
+    perspective: 900px;
+    margin: 0 auto;
+    cursor: pointer;
+  }
+
+  #carte-flip {
+    width: 340px;
+    height: 210px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: carte-tourne 6s ease-in-out infinite;
+    transition: animation-play-state 0.3s;
+  }
+
+  #carte-scene:hover #carte-flip {
+    animation-play-state: paused;
+  }
+
+  @keyframes carte-tourne {
+    0%   { transform: rotateY(0deg)   rotateX(4deg); }
+    25%  { transform: rotateY(90deg)  rotateX(2deg); }
+    50%  { transform: rotateY(180deg) rotateX(4deg); }
+    75%  { transform: rotateY(270deg) rotateX(2deg); }
+    100% { transform: rotateY(360deg) rotateX(4deg); }
+  }
+
+  .carte-face {
+    position: absolute;
+    width: 340px;
+    height: 210px;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 4px 8px 24px rgba(0,0,0,0.45);
+  }
+
+  /* Face avant */
+  #carte-recto {
+    background: linear-gradient(135deg, #8B0000 0%, #CC0000 40%, #990033 60%, #660000 100%);
+  }
+
+  #carte-recto::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.18) 0%, transparent 60%);
+  }
+
+  /* Hologramme sur la face avant */
+  @keyframes hologramme {
+    0%   { opacity: 0.5; background-position: 0% 0%; }
+    50%  { opacity: 0.9; background-position: 100% 100%; }
+    100% { opacity: 0.5; background-position: 0% 0%; }
+  }
+
+  #carte-hologramme {
+    position: absolute;
+    bottom: 14px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: conic-gradient(
+      #FF0000, #FF7700, #FFFF00, #00FF00, #0000FF, #8B00FF, #FF0000
+    );
+    animation: hologramme 2s linear infinite;
+    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+  }
+
+  /* Face arriere */
+  #carte-verso {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  }
+
+  #carte-verso::before {
+    content: "";
+    position: absolute;
+    top: 30px; left: 0; right: 0;
+    height: 40px;
+    background-color: #111111;
+  }
+
+  /* Reflet brillant */
+  @keyframes reflet-glisse {
+    0%   { left: -80px; opacity: 0; }
+    20%  { opacity: 0.6; }
+    80%  { opacity: 0.3; }
+    100% { left: 420px; opacity: 0; }
+  }
+
+  .carte-reflet {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transform: skewX(-20deg);
+    animation: reflet-glisse 3s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  /* ============================================================
+     SECTION IMPRESSION
+     ============================================================ */
+  @media print {
+    /* Masquer tout sauf le formulaire imprimable */
+    body > * { display: none !important; }
+    #zone-impression { display: block !important; }
+    #zone-impression { position: static !important; }
+  }
+
+  #zone-impression {
+    display: none;
+  }
+
+  /* Apercu impression */
+  #formulaire-don {
+    background-color: #FFFFFF;
+  }
+
+  .btn-imprimer {
+    background-color: #006600;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    border: 2px outset #009900;
+    padding: 6px 16px;
+    cursor: pointer;
+  }
+  .btn-imprimer:hover {
+    background-color: #009900;
+  }
+  .btn-imprimer:active {
+    border-style: inset;
+  }
+
+  @keyframes badge-pulse {
+    0%,100% { background-color: #FF0000; transform: rotate(-4deg) scale(1);   }
+    50%      { background-color: #FF7700; transform: rotate( 4deg) scale(1.15); }
+  }
+  .badge-nouveau {
+    display: inline-block;
+    background-color: #FF0000;
+    color: #FFFF00;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 1px 4px;
+    animation: badge-pulse 0.7s ease-in-out infinite;
+    vertical-align: middle;
+  }
+
+  -->
+  </style>
+</head>
+
+<body bgcolor="#DDEEFF" text="#000000" link="#0000CC" vlink="#660066" alink="#FF6600">
+
+<!-- ============================================================
+     ZONE IMPRESSION (cachee a l'ecran, visible uniquement en impression)
+     ============================================================ -->
+<div id="zone-impression">
+  <div id="formulaire-don" style="font-family:Arial,Helvetica,sans-serif; font-size:12pt; padding:20px; max-width:700px; margin:0 auto; color:#000000;">
+
+    <!-- En-tete officiel -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          <div style="font-family:'Arial Black',Arial,sans-serif; font-size:28pt; color:#CC0000; font-weight:bold;">LIONEL JOSPIN 2002</div>
+          <div style="font-size:10pt; color:#333333;">Campagne pour l'Election Presidentielle du 21 avril 2002</div>
+          <div style="font-size:9pt; color:#666666;">Association de financement de campagne &mdash; Agrement prefectoral n&deg;2002-IDF-047</div>
+        </td>
+        <td align="right" style="font-size:9pt; color:#666666;">
+          &#9733;&#9733;&#9733;<br>
+          <b>PARTI SOCIALISTE</b><br>
+          10, rue de Solferino<br>
+          75007 PARIS
+        </td>
+      </tr>
+    </table>
+
+    <hr style="border-top:3px solid #CC0000; margin:10px 0;">
+    <div style="font-family:'Arial Black',Arial,sans-serif; font-size:16pt; text-align:center; color:#000080; margin:6px 0;">
+      BULLETIN DE DON ET DE SOUTIEN A LA CAMPAGNE
+    </div>
+    <hr style="border-top:1px solid #000000; margin:6px 0;">
+
+    <br>
+
+    <!-- Coordonnees du donateur -->
+    <div style="font-weight:bold; font-size:11pt; margin-bottom:6px; text-decoration:underline;">
+      VOS COORDONNEES :
+    </div>
+    <table width="100%" border="0" cellpadding="3" cellspacing="0">
+      <tr>
+        <td width="120">Nom :</td>
+        <td style="border-bottom:1px solid #000000;">&nbsp;<span id="print-nom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+        <td width="100">Prenom :</td>
+        <td style="border-bottom:1px solid #000000;">&nbsp;<span id="print-prenom">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      </tr>
+      <tr><td colspan="4">&nbsp;</td></tr>
+      <tr>
+        <td>Adresse :</td>
+        <td colspan="3" style="border-bottom:1px solid #000000;">&nbsp;<span id="print-adresse">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      </tr>
+      <tr><td colspan="4">&nbsp;</td></tr>
+      <tr>
+        <td>Code postal :</td>
+        <td style="border-bottom:1px solid #000000;">&nbsp;<span id="print-cp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+        <td>Ville :</td>
+        <td style="border-bottom:1px solid #000000;">&nbsp;<span id="print-ville">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      </tr>
+      <tr><td colspan="4">&nbsp;</td></tr>
+      <tr>
+        <td>E-mail :</td>
+        <td colspan="3" style="border-bottom:1px solid #000000;">&nbsp;<span id="print-email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- Montant du don -->
+    <div style="font-weight:bold; font-size:11pt; margin-bottom:6px; text-decoration:underline;">
+      MONTANT DU DON (cochez la case) :
+    </div>
+    <table width="100%" border="0" cellpadding="3" cellspacing="2">
+      <tr>
+        <td width="30">
+          <span id="print-montant-10" style="font-size:16pt;">&nbsp;&nbsp;</span>
+        </td>
+        <td><b>10 Francs</b> (1,52 &euro;) &mdash; Don symbolique de soutien</td>
+        <td width="30"><span id="print-montant-50" style="font-size:16pt;">&nbsp;&nbsp;</span></td>
+        <td><b>50 Francs</b> (7,62 &euro;) &mdash; Sympathisant actif</td>
+      </tr>
+      <tr>
+        <td><span id="print-montant-100" style="font-size:16pt;">&nbsp;&nbsp;</span></td>
+        <td><b>100 Francs</b> (15,24 &euro;) &mdash; Soutien confirme</td>
+        <td><span id="print-montant-500" style="font-size:16pt;">&nbsp;&nbsp;</span></td>
+        <td><b>500 Francs</b> (76,22 &euro;) &mdash; Grand donateur</td>
+      </tr>
+      <tr>
+        <td><span id="print-montant-autre" style="font-size:16pt;">&nbsp;&nbsp;</span></td>
+        <td colspan="3"><b>Autre montant :</b> _____________________ Francs</td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- Mode de reglement -->
+    <div style="font-weight:bold; font-size:11pt; margin-bottom:6px; text-decoration:underline;">
+      MODE DE REGLEMENT :
+    </div>
+    <table width="100%" border="0" cellpadding="2" cellspacing="0">
+      <tr>
+        <td width="16">&#9633;</td><td>Cheque a l'ordre de <b>&laquo;&nbsp;Association Jospin 2002&nbsp;&raquo;</b></td>
+        <td width="16">&#9633;</td><td>Mandat postal</td>
+      </tr>
+      <tr>
+        <td>&#9633;</td><td colspan="3">Virement bancaire &mdash; RIB disponible sur demande : <i>jospin2002@wanadoo.fr</i></td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- Attention : pas de CB -->
+    <table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-color:#CC0000;">
+      <tr>
+        <td bgcolor="#FFF5F5">
+          <b style="color:#CC0000;">IMPORTANT :</b> En raison des limitations techniques actuelles d'Internet,
+          <b>le paiement par carte bancaire en ligne n'est pas possible.</b>
+          Nous vous remercions de nous faire parvenir votre don par cheque ou mandat postal
+          a l'adresse suivante :<br>
+          <b>Association Jospin 2002 &mdash; BP 2002 &mdash; 75007 Paris</b>
+        </td>
+      </tr>
+    </table>
+
+    <br>
+
+    <!-- Signature -->
+    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td>
+          Date : ______ / ______ / 2002
+          <br><br>
+          Signature :
+          <br><br><br><br>
+          ____________________________________
+        </td>
+        <td align="right" valign="top">
+          <!-- Espace carte de membre -->
+          <table width="260" height="160" border="2" cellpadding="0" cellspacing="0"
+                 style="border-color:#CC0000; border-style:dashed;">
+            <tr>
+              <td align="center" valign="middle">
+                <div id="print-carte-preview" style="
+                  width:230px; height:140px;
+                  background:linear-gradient(135deg,#8B0000,#CC0000,#660000);
+                  color:#FFFFFF;
+                  font-family:Arial,Helvetica,sans-serif;
+                  border-radius:8px;
+                  padding:10px;
+                  box-sizing:border-box;
+                  position:relative;
+                ">
+                  <div style="font-size:7pt; color:#FFCCCC;">PARTI SOCIALISTE &mdash; CAMPAGNE 2002</div>
+                  <div style="font-size:10pt; font-weight:bold; margin-top:2px;">CARTE DE SOUTIEN</div>
+                  <div style="font-size:8pt; margin-top:8px;">Nom : <span id="print-carte-nom" style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+                  <div style="font-size:8pt; margin-top:4px;">Membre n&deg; : <b style="font-size:10pt;" id="print-num-membre">0000</b></div>
+                  <div style="font-size:7pt; color:#FFCCCC; margin-top:8px;">Valable pour l'election du 21 avril 2002</div>
+                  <div style="position:absolute; bottom:8px; right:10px; font-size:16pt; color:#FFFF00; font-weight:bold;">&#9733; PS</div>
+                </div>
+                <div style="font-size:8pt; color:#666666; margin-top:3px; font-style:italic;">Decouper et conserver</div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+
+    <hr style="border-top:1px solid #999999; margin-top:12px;">
+    <div style="font-size:8pt; color:#666666; text-align:center;">
+      Conformement a la loi du 11 mars 1988 relative a la transparence financiere de la vie politique, les dons
+      de personnes physiques a une association de financement electorale sont plafonnes a 4 600 &euro; par donateur.
+      Tout don ouvre droit a une reduction d'impot sur le revenu egale a 66% du montant verse dans la limite de 20% du revenu imposable.
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SITE VISIBLE A L'ECRAN
+     ============================================================ -->
+
+<center>
+<table width="800" border="0" cellpadding="0" cellspacing="0">
+  <tr><td>
+
+    <!-- BANDEAU -->
+    <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">
+      <tr>
+        <td width="140" bgcolor="#000055" align="center" valign="middle">
+          <br>
+          <font face="Arial Black, Arial" size="6" color="#FFFF00"><b>&#9733; PS &#9733;</b></font>
+          <br>
+          <font face="Arial" size="1" color="#AAAAFF">PARTI SOCIALISTE</font>
+          <br><br>
+        </td>
+        <td width="520" align="center" valign="middle" bgcolor="#CC0000">
+          <br>
+          <font face="Arial Black, Impact, Arial" size="7" color="#FFFFFF"><b>LIONEL JOSPIN</b></font>
+          <br>
+          <font face="Arial" size="3" color="#FFFF00"><b><i>Candidat a la Presidence de la Republique</i></b></font>
+          <br>
+          <font face="Arial" size="2" color="#FFCCCC">Election Presidentielle Francaise &mdash; Avril 2002</font>
+          <br><br>
+        </td>
+        <td width="140" bgcolor="#000055" align="center" valign="middle">
+          <br>
+          <span class="etoile-clignote">&#9733;</span>
+          <span class="etoile-clignote" style="animation-delay:0.3s">&#9733;</span>
+          <span class="etoile-clignote" style="animation-delay:0.6s">&#9733;</span>
+          <br>
+          <font face="Arial" size="1" color="#AAAAFF">VOTEZ JOSPIN</font>
+          <br>
+          <span class="etoile-clignote" style="animation-delay:0.9s">&#9733;</span>
+          <span class="etoile-clignote" style="animation-delay:0.15s">&#9733;</span>
+          <span class="etoile-clignote" style="animation-delay:0.45s">&#9733;</span>
+          <br><br>
+        </td>
+      </tr>
+    </table>
+
+    <!-- MARQUEE -->
+    <table width="800" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td width="90" bgcolor="#CC0000" align="center">
+          <font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU :&nbsp;</b></font>
+        </td>
+        <td bgcolor="#FFFF00">
+          <marquee behavior="scroll" direction="left" scrollamount="4">
+            <font face="Arial" size="2" color="#CC0000">
+              <b>&#9733; SOUTENEZ JOSPIN ! &#9733; Faites un don a la campagne &#9733; Remplissez et imprimez le bulletin ci-dessous &#9733; Votre carte de membre vous sera envoyee par La Poste &#9733;</b>
+            </font>
+          </marquee>
+        </td>
+      </tr>
+    </table>
+
+    <!-- CONTENU : 2 COLONNES -->
+    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+      <tr valign="top">
+
+        <!-- COLONNE GAUCHE -->
+        <td width="178" bgcolor="#E8E8FF">
+          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#000080">
+            <tr><td bgcolor="#000080" align="center">
+              <font face="Arial" size="2" color="#FFFFFF"><b>NAVIGATION</b></font>
+            </td></tr>
+            <tr><td bgcolor="#FFFFFF">
+              <font face="Arial" size="2">
+                <b>&raquo; <a href="index.html" class="lien-sidebar">Accueil</a></b><br>
+                <b>&raquo; <a href="programme.html" class="lien-sidebar">Le Programme</a></b><br>
+                <b>&raquo; <a href="mot-du-candidat.html" class="lien-sidebar">Mot du candidat</a></b><br>
+                <b>&raquo; <a href="don.html" class="lien-sidebar">Faire un don</a></b>
+              </font>
+            </td></tr>
+          </table>
+
+          <br>
+
+          <!-- Encart securite internet -->
+          <table width="166" border="2" cellpadding="4" cellspacing="0" bordercolor="#CC0000">
+            <tr bgcolor="#CC0000"><td align="center">
+              <font face="Arial" size="1" color="#FFFFFF"><b>SECURITE INTERNET</b></font>
+            </td></tr>
+            <tr><td bgcolor="#FFF5F5">
+              <font face="Arial" size="1" color="#333333">
+                <b><font color="#CC0000">ATTENTION !</font></b><br>
+                Ne communiquez<br>jamais votre numero<br>de carte bancaire<br>sur Internet !<br><br>
+                <i>C'est pourquoi nous<br>vous proposons<br>uniquement le<br>paiement par<br>cheque postal.</i>
+              </font>
+            </td></tr>
+          </table>
+
+          <br>
+
+          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#006699">
+            <tr><td bgcolor="#006699" align="center">
+              <font face="Arial" size="1" color="#FFFFFF"><b>VOS AVANTAGES</b></font>
+            </td></tr>
+            <tr><td bgcolor="#F0F8FF">
+              <font face="Arial" size="1">
+                En faisant un don,<br>vous recevez :<br><br>
+                &#9658; <b>Carte de membre</b><br>
+                &#9658; <b>Newsletter</b> mensuelle<br>
+                &#9658; <b>Invite</b> aux meetings<br>
+                &#9658; <b>Reduction fiscale</b><br>
+                &nbsp;&nbsp;&nbsp;de 66% !
+              </font>
+            </td></tr>
+          </table>
+
+        </td><!-- fin gauche -->
+
+
+        <!-- COLONNE CENTRALE -->
+        <td width="622" bgcolor="#FFFFFF">
+
+          <!-- Titre -->
+          <table width="618" border="2" cellpadding="6" cellspacing="0" bordercolor="#CC0000">
+            <tr bgcolor="#CC0000">
+              <td>
+                <font face="Arial Black, Arial" size="4" color="#FFFFFF">
+                  <b>&#9733; FAITES UN DON A LA CAMPAGNE &#9733;</b>
+                </font>
+              </td>
+            </tr>
+            <tr><td bgcolor="#FFF5F5">
+              <font face="Arial" size="2">
+                <b>Chers amis,</b> une campagne presidentielle, ca coute cher.
+                Les tracts, les affiches, les meetings, les autocollants...
+                et maintenant ce site Internet que vous visitez !<br><br>
+                <b>Votre don, aussi modeste soit-il, compte.</b>
+                Remplissez le formulaire ci-dessous, imprimez-le, et envoyez-le
+                avec votre cheque a l'adresse indiquee. Simple comme un coup de timbre !
+              </font>
+            </td></tr>
+          </table>
+
+          <br>
+
+          <!-- CARTE 3D ANIMEE (remplacement Flash) -->
+          <table width="618" border="1" cellpadding="10" cellspacing="0" bordercolor="#990099">
+            <tr bgcolor="#990099">
+              <td>
+                <font face="Arial" size="2" color="#FFFFFF"><b>&#9733; VOTRE CARTE DE MEMBRE OFFICIELLE &mdash; APERCU 3D &#9733;</b></font>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#111133" align="center">
+
+                <br>
+                <!-- Scene 3D -->
+                <div id="carte-scene">
+                  <div id="carte-flip">
+
+                    <!-- Face recto -->
+                    <div class="carte-face" id="carte-recto">
+                      <div class="carte-reflet"></div>
+                      <!-- Contenu recto -->
+                      <div style="padding:16px; color:#FFFFFF; position:relative; z-index:1;">
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:7px; color:#FFAAAA; letter-spacing:2px; text-transform:uppercase;">
+                          Parti Socialiste &mdash; Campagne Presidentielle 2002
+                        </div>
+                        <div style="font-family:'Arial Black',Impact,Arial,sans-serif; font-size:18px; color:#FFFF00; margin-top:6px; text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
+                          JOSPIN 2002
+                        </div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#FFCCCC; margin-top:2px;">
+                          CARTE DE SOUTIEN OFFICIELLE
+                        </div>
+
+                        <!-- Nom du membre -->
+                        <div style="margin-top:14px; font-family:'Courier New',monospace; font-size:11px; color:#FFFFFF; letter-spacing:1px;">
+                          NOM : <span id="carte-nom-display" style="text-transform:uppercase; border-bottom:1px solid #FF8888;">VOTRE NOM ICI</span>
+                        </div>
+                        <div style="font-family:'Courier New',monospace; font-size:10px; color:#FFAAAA; margin-top:4px;">
+                          MEMBRE N&deg; <span id="carte-num-display">2002-XXXX</span>
+                        </div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:8px; color:#FFCCCC; margin-top:10px;">
+                          VALABLE POUR LE 21 AVRIL 2002
+                        </div>
+                      </div>
+                      <!-- Logo PS en bas a droite -->
+                      <div style="position:absolute; bottom:12px; right:18px; font-family:'Arial Black',Arial,sans-serif; font-size:22px; color:#FFFF00; text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
+                        &#9733;PS
+                      </div>
+                      <!-- Hologramme -->
+                      <div id="carte-hologramme"></div>
+                    </div>
+
+                    <!-- Face verso -->
+                    <div class="carte-face" id="carte-verso">
+                      <!-- Bande magnetique (simulee) -->
+                      <div style="position:absolute; top:30px; left:0; right:0; height:40px; background-color:#111111;"></div>
+                      <!-- Contenu verso -->
+                      <div style="padding:16px; padding-top:90px; color:#AAAACC; font-family:Arial,Helvetica,sans-serif; font-size:8px; position:relative; z-index:1;">
+                        <div style="background-color:#FFFFEE; padding:5px; color:#000000; font-family:'Courier New',monospace; font-size:9px; height:22px; overflow:hidden;">
+                          Signature autorisee : ________________________________________________
+                        </div>
+                        <br>
+                        <div style="font-size:7px; color:#8888AA; line-height:1.4;">
+                          Cette carte est la propriete de l'Association Jospin 2002.<br>
+                          En cas de perte, contacter : jospin2002@wanadoo.fr<br>
+                          ou ecrire a : BP 2002 &mdash; 75007 Paris.
+                        </div>
+                        <br>
+                        <div style="font-size:8px; color:#AAAACC;">
+                          Association de financement agr&eacute;e<br>
+                          N&deg; prefectoral : 2002-IDF-047
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <br>
+                <font face="Arial" size="1" color="#8888AA">
+                  <i>(Passez la souris sur la carte pour l'arreter &mdash; Animation realisee sans Flash)</i>
+                </font>
+                <br><br>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <!-- FORMULAIRE DE DON -->
+          <table width="618" border="1" cellpadding="6" cellspacing="0" bordercolor="#006600">
+            <tr bgcolor="#006600">
+              <td>
+                <font face="Arial" size="2" color="#FFFFFF"><b>&#9658; REMPLISSEZ LE FORMULAIRE &mdash; PUIS IMPRIMEZ !</b></font>
+              </td>
+            </tr>
+            <tr>
+              <td bgcolor="#F5FFF5">
+                <font face="Arial" size="2">
+
+                  <table border="0" cellpadding="4" cellspacing="2" width="100%">
+
+                    <tr>
+                      <td width="120"><font face="Arial" size="2">Nom :</font></td>
+                      <td><input type="text" id="f-nom" size="20"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:180px;"
+                        onkeyup="majCarte()">
+                      </td>
+                      <td width="80"><font face="Arial" size="2">Prenom :</font></td>
+                      <td><input type="text" id="f-prenom" size="20"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:140px;">
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><font face="Arial" size="2">Adresse :</font></td>
+                      <td colspan="3"><input type="text" id="f-adresse" size="48"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:100%;">
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><font face="Arial" size="2">Code postal :</font></td>
+                      <td><input type="text" id="f-cp" size="8"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;">
+                      </td>
+                      <td><font face="Arial" size="2">Ville :</font></td>
+                      <td><input type="text" id="f-ville" size="20"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:140px;">
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td><font face="Arial" size="2">E-mail :</font></td>
+                      <td colspan="3"><input type="text" id="f-email" size="30"
+                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:100%;">
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4"><hr class="hr-rainbow"></td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4">
+                        <font face="Arial" size="2"><b>Montant du don :</b></font><br><br>
+                        <table border="0" cellpadding="2" cellspacing="6">
+                          <tr>
+                            <td><input type="radio" name="montant" id="m10" value="10">
+                              <label for="m10"><font face="Arial" size="2"><b>10 F</b> (1,52 &euro;) &mdash; Sympathisant</font></label>
+                            </td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td><input type="radio" name="montant" id="m50" value="50">
+                              <label for="m50"><font face="Arial" size="2"><b>50 F</b> (7,62 &euro;) &mdash; Soutien actif</font></label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td><input type="radio" name="montant" id="m100" value="100">
+                              <label for="m100"><font face="Arial" size="2"><b>100 F</b> (15,24 &euro;) &mdash; Soutien confirme</font></label>
+                            </td>
+                            <td></td>
+                            <td><input type="radio" name="montant" id="m500" value="500">
+                              <label for="m500"><font face="Arial" size="2"><b>500 F</b> (76,22 &euro;) &mdash; Grand donateur</font></label>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td colspan="3"><input type="radio" name="montant" id="mautre" value="autre">
+                              <label for="mautre"><font face="Arial" size="2">Autre montant :</font></label>
+                              <input type="text" id="f-autre-montant" size="8"
+                                style="font-family:Arial;font-size:11px;border:1px solid #006600;">
+                              <font face="Arial" size="2">Francs</font>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4"><hr class="hr-rainbow"></td>
+                    </tr>
+
+                    <tr>
+                      <td colspan="4" align="center">
+                        <br>
+                        <button class="btn-imprimer" onclick="imprimerFormulaire()">
+                          &#9658; IMPRIMER LE BULLETIN DE DON ET MA CARTE DE MEMBRE
+                        </button>
+                        <br><br>
+                        <font face="Arial" size="1" color="#666666">
+                          <i>Imprimez ce formulaire, signez-le, joignez votre cheque et envoyez le tout a :<br>
+                          <b>Association Jospin 2002 &mdash; BP 2002 &mdash; 75007 Paris</b></i>
+                        </font>
+                        <br>
+                      </td>
+                    </tr>
+
+                  </table>
+
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <!-- Info fiscale -->
+          <table width="618" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFCC">
+            <tr>
+              <td>
+                <font face="Arial" size="1" color="#666666">
+                  <b>AVANTAGE FISCAL :</b> Conformement a la loi, tout don a une association de financement electorale
+                  ouvre droit a une <b>reduction d'impot sur le revenu de 66%</b> du montant verse,
+                  dans la limite de 20% du revenu imposable. Un recu fiscal vous sera adresse par courrier.
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+        </td><!-- fin colonne centrale -->
+
+      </tr>
+    </table>
+
+    <!-- PIED DE PAGE -->
+    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#000033">
+      <tr><td align="center">
+        <hr noshade size="2" color="#CC0000" width="780">
+        <font face="Arial" size="2" color="#CCCCCC">
+          <b>JOSPIN 2002</b> &mdash; Site Officiel de Campagne
+          &mdash; <a href="index.html" style="color:#FFFF99;">Accueil</a>
+          &mdash; <a href="programme.html" style="color:#FFFF99;">Programme</a>
+          &mdash; <a href="mot-du-candidat.html" style="color:#FFFF99;">Mot du candidat</a>
+        </font>
+        <br>
+        <font face="Arial" size="1" color="#888888">
+          &copy; 2002 Parti Socialiste &mdash; Jospin2002 &mdash; Tous droits reserves
+          &mdash; <a href="mailto:webmaster@jospin2002.fr" style="color:#FFFF99;">webmaster@jospin2002.fr</a>
+        </font>
+        <br><br>
+      </td></tr>
+    </table>
+
+  </td></tr>
+</table>
+</center>
+
+
+<script type="text/javascript">
+<!--
+
+// --- Mise a jour live du nom sur la carte 3D ---
+var numMembre = Math.floor(Math.random() * 8999) + 1000;
+
+function majCarte() {
+  var nom = document.getElementById('f-nom').value;
+  var el = document.getElementById('carte-nom-display');
+  var elNum = document.getElementById('carte-num-display');
+  if (el) {
+    el.innerHTML = nom ? nom.toUpperCase() : 'VOTRE NOM ICI';
+  }
+  if (elNum) {
+    elNum.innerHTML = nom ? ('2002-' + numMembre) : '2002-XXXX';
+  }
+}
+
+// --- Impression du formulaire ---
+function imprimerFormulaire() {
+  // Recuperer les valeurs
+  var nom     = document.getElementById('f-nom').value     || '';
+  var prenom  = document.getElementById('f-prenom').value  || '';
+  var adresse = document.getElementById('f-adresse').value || '';
+  var cp      = document.getElementById('f-cp').value      || '';
+  var ville   = document.getElementById('f-ville').value   || '';
+  var email   = document.getElementById('f-email').value   || '';
+
+  // Montant selectionne
+  var radios = document.getElementsByName('montant');
+  var montant = '';
+  for (var i = 0; i < radios.length; i++) {
+    if (radios[i].checked) { montant = radios[i].value; break; }
+  }
+
+  // Remplir les champs de la zone impression
+  function setSpan(id, val) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  }
+
+  setSpan('print-nom',    nom);
+  setSpan('print-prenom', prenom);
+  setSpan('print-adresse', adresse);
+  setSpan('print-cp',     cp);
+  setSpan('print-ville',  ville);
+  setSpan('print-email',  email);
+  setSpan('print-carte-nom', nom ? nom.toUpperCase() : '');
+  setSpan('print-num-membre', nom ? ('2002-' + numMembre) : '0000');
+
+  // Cocher le bon montant
+  setSpan('print-montant-10',   montant === '10'    ? '&#9635;' : '&#9634;');
+  setSpan('print-montant-50',   montant === '50'    ? '&#9635;' : '&#9634;');
+  setSpan('print-montant-100',  montant === '100'   ? '&#9635;' : '&#9634;');
+  setSpan('print-montant-500',  montant === '500'   ? '&#9635;' : '&#9634;');
+  setSpan('print-montant-autre', montant === 'autre' ? '&#9635;' : '&#9634;');
+
+  // Afficher la zone impression et lancer l'impression
+  var zoneImpression = document.getElementById('zone-impression');
+  zoneImpression.style.display = 'block';
+  window.print();
+  // Cacher de nouveau apres impression
+  setTimeout(function() {
+    zoneImpression.style.display = 'none';
+  }, 1000);
+}
+
+//-->
+</script>
+<script type="text/javascript" src="jospin.js"></script>
+
+</body>
+</html>

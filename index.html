@@ -433,33 +433,6 @@
 
 
       <!-- ======================================================
-           BARRE DE NAVIGATION
-           ====================================================== -->
-      <table width="800" border="0" cellpadding="0" cellspacing="1" bgcolor="#660000">
-        <tr>
-          <td class="cellule-nav" align="center" width="133">
-            <a href="index.html" class="lien-nav">ACCUEIL</a>
-          </td>
-          <td class="cellule-nav" align="center" width="133">
-            <a href="programme.html" class="lien-nav">PROGRAMME</a>
-          </td>
-          <td class="cellule-nav" align="center" width="133">
-            <a href="biographie.html" class="lien-nav">BIOGRAPHIE</a>
-          </td>
-          <td class="cellule-nav" align="center" width="134">
-            <a href="discours.html" class="lien-nav">DISCOURS</a>
-          </td>
-          <td class="cellule-nav" align="center" width="133">
-            <a href="soutiens.html" class="lien-nav">SOUTIENS</a>
-          </td>
-          <td class="cellule-nav" align="center" width="134">
-            <a href="contact.html" class="lien-nav">CONTACT</a>
-          </td>
-        </tr>
-      </table>
-
-
-      <!-- ======================================================
            CONTENU PRINCIPAL : 3 COLONNES
            ====================================================== -->
       <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
@@ -483,14 +456,8 @@
                   <font face="Arial" size="2">
                     <b>&raquo; <a href="index.html" class="lien-sidebar">Accueil</a></b><br>
                     <b>&raquo; <a href="programme.html" class="lien-sidebar">Le Programme</a></b><br>
-                    <b>&raquo; <a href="biographie.html" class="lien-sidebar">Biographie</a></b><br>
-                    <b>&raquo; <a href="agenda.html" class="lien-sidebar">Agenda meetings</a></b><br>
-                    <b>&raquo; <a href="discours.html" class="lien-sidebar">Discours</a></b><br>
-                    <b>&raquo; <a href="presse.html" class="lien-sidebar">Revue de presse</a></b><br>
-                    <b>&raquo; <a href="soutiens.html" class="lien-sidebar">Ils soutiennent</a></b><br>
-                    <b>&raquo; <a href="rejoindre.html" class="lien-sidebar">Nous rejoindre</a></b><br>
-                    <b>&raquo; <a href="livre-or.html" class="lien-sidebar">Livre d'or</a></b><br>
-                    <b>&raquo; <a href="contact.html" class="lien-sidebar">Contact</a></b>
+                    <b>&raquo; <a href="mot-du-candidat.html" class="lien-sidebar">Mot du candidat</a></b><br>
+                    <b>&raquo; <a href="don.html" class="lien-sidebar">Faire un don</a></b>
                   </font>
                 </td>
               </tr>
@@ -984,64 +951,7 @@
 <!-- ============================================================
      JAVASCRIPT
      ============================================================ -->
-<script type="text/javascript">
-<!--
-
-// --- Suppression de l'intro apres les animations ---
-var introEl = document.getElementById('flash-intro');
-var btnSkip = document.getElementById('btn-skip');
-
-// Afficher le bouton "Passer l'intro" apres 2 secondes
-setTimeout(function() {
-  btnSkip.style.display = 'inline-block';
-}, 2000);
-
-// Supprimer l'intro automatiquement apres 4.5 secondes
-setTimeout(function() {
-  finIntro();
-}, 4500);
-
-function skipIntro() {
-  finIntro();
-}
-
-function finIntro() {
-  introEl.classList.add('fade-out');
-  setTimeout(function() {
-    introEl.style.display = 'none';
-  }, 700);
-}
-
-// --- Simulation compteur de visiteurs ---
-var compteurEl = document.getElementById('num-visiteur');
-var nbVisiteurs = 2847;
-
-function formaterCompteur(n) {
-  var s = '000' + n;
-  s = s.slice(-7);
-  return s.slice(0, 3) + '\u00a0' + s.slice(3);
-}
-
-setInterval(function() {
-  if (Math.random() < 0.15) {
-    nbVisiteurs++;
-    compteurEl.innerHTML = formaterCompteur(nbVisiteurs);
-  }
-}, 4000);
-
-// --- Effet rollover Flash sur les cellules de navigation ---
-var cellules = document.getElementsByClassName('cellule-nav');
-for (var i = 0; i < cellules.length; i++) {
-  cellules[i].onmouseover = function() {
-    this.style.backgroundColor = '#FF6600';
-  };
-  cellules[i].onmouseout = function() {
-    this.style.backgroundColor = '#BB0000';
-  };
-}
-
-//-->
-</script>
+<script type="text/javascript" src="jospin.js"></script>
 
 </body>
 </html>
