@@ -9,19 +9,21 @@
   <style type="text/css">
   <!--
   body {
-    background-color: #DDEEFF;
+    background-color: #F0D4DE;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50'%3E%3Crect width='50' height='50' fill='%23F0D4DE'/%3E%3Cg opacity='0.28'%3E%3Cellipse cx='25' cy='19' rx='6' ry='4' fill='%23C41E5A'/%3E%3Cellipse cx='19' cy='22' rx='5' ry='4' fill='%23C41E5A' transform='rotate(-45 19 22)'/%3E%3Cellipse cx='31' cy='22' rx='5' ry='4' fill='%23C41E5A' transform='rotate(45 31 22)'/%3E%3Cellipse cx='20' cy='29' rx='5' ry='4' fill='%23C41E5A' transform='rotate(-20 20 29)'/%3E%3Cellipse cx='30' cy='29' rx='5' ry='4' fill='%23C41E5A' transform='rotate(20 30 29)'/%3E%3Ccircle cx='25' cy='24' r='4.5' fill='%239B1848'/%3E%3Cline x1='25' y1='32' x2='25' y2='46' stroke='%234A6B18' stroke-width='1.5'/%3E%3Cellipse cx='21' cy='40' rx='4' ry='2.5' fill='%234A6B18' transform='rotate(-30 21 40)'/%3E%3Cellipse cx='29' cy='44' rx='4' ry='2.5' fill='%234A6B18' transform='rotate(30 29 44)'/%3E%3C/g%3E%3C/svg%3E");
+    background-repeat: repeat;
     margin: 0;
     padding: 10px 0;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
     color: #000000;
   }
-  a:link    { color: #0000CC; }
+  a:link    { color: #8B0040; }
   a:visited { color: #660066; }
   a:hover   { color: #FF0000; text-decoration: underline; }
   a:active  { color: #FF6600; }
 
-  .lien-sidebar { color: #000080; font-size: 11px; text-decoration: none; }
+  .lien-sidebar { color: #8B1A45; font-size: 11px; text-decoration: none; }
   .lien-sidebar:hover { color: #FF0000; background-color: #FFFFCC; }
 
   @keyframes bandeau-shimmer {
@@ -30,7 +32,7 @@
     100% { background-position: 0% 50%; }
   }
   #bandeau-principal {
-    background: linear-gradient(270deg, #990000, #CC0000, #000066, #CC0000, #990000);
+    background: linear-gradient(270deg, #8B1A45, #CC0000, #A5184E, #CC0000, #8B1A45);
     background-size: 400% 400%;
     animation: bandeau-shimmer 5s ease infinite;
   }
@@ -140,7 +142,7 @@
   /* Face arriere */
   #carte-verso {
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    background: linear-gradient(135deg, #2C0818 0%, #4A0E28 50%, #6B1040 100%);
   }
 
   #carte-verso::before {
@@ -224,7 +226,7 @@
   </style>
 </head>
 
-<body bgcolor="#DDEEFF" text="#000000" link="#0000CC" vlink="#660066" alink="#FF6600">
+<body bgcolor="#F0D4DE" text="#000000" link="#8B0040" vlink="#660066" alink="#FF6600">
 
 <!-- ============================================================
      ZONE IMPRESSION (cachee a l'ecran, visible uniquement en impression)
@@ -250,7 +252,7 @@
     </table>
 
     <hr style="border-top:3px solid #CC0000; margin:10px 0;">
-    <div style="font-family:'Arial Black',Arial,sans-serif; font-size:16pt; text-align:center; color:#000080; margin:6px 0;">
+    <div style="font-family:'Arial Black',Arial,sans-serif; font-size:16pt; text-align:center; color:#8B1A45; margin:6px 0;">
       BULLETIN DE DON ET DE SOUTIEN A LA CAMPAGNE
     </div>
     <hr style="border-top:1px solid #000000; margin:6px 0;">
@@ -410,11 +412,11 @@
     <!-- BANDEAU -->
     <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">
       <tr>
-        <td width="140" bgcolor="#000055" align="center" valign="middle">
+        <td width="140" bgcolor="#5C1030" align="center" valign="middle">
           <br>
           <font face="Arial Black, Arial" size="6" color="#FFFF00"><b>&#9733; PS &#9733;</b></font>
           <br>
-          <font face="Arial" size="1" color="#AAAAFF">PARTI SOCIALISTE</font>
+          <font face="Arial" size="1" color="#FFAACC">PARTI SOCIALISTE</font>
           <br><br>
         </td>
         <td width="520" align="center" valign="middle" bgcolor="#CC0000">
@@ -426,13 +428,13 @@
           <font face="Arial" size="2" color="#FFCCCC">Election Presidentielle Francaise &mdash; Avril 2002</font>
           <br><br>
         </td>
-        <td width="140" bgcolor="#000055" align="center" valign="middle">
+        <td width="140" bgcolor="#5C1030" align="center" valign="middle">
           <br>
           <span class="etoile-clignote">&#9733;</span>
           <span class="etoile-clignote" style="animation-delay:0.3s">&#9733;</span>
           <span class="etoile-clignote" style="animation-delay:0.6s">&#9733;</span>
           <br>
-          <font face="Arial" size="1" color="#AAAAFF">VOTEZ JOSPIN</font>
+          <font face="Arial" size="1" color="#FFAACC">VOTEZ JOSPIN</font>
           <br>
           <span class="etoile-clignote" style="animation-delay:0.9s">&#9733;</span>
           <span class="etoile-clignote" style="animation-delay:0.15s">&#9733;</span>
@@ -463,9 +465,9 @@
       <tr valign="top">
 
         <!-- COLONNE GAUCHE -->
-        <td width="178" bgcolor="#E8E8FF">
-          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#000080">
-            <tr><td bgcolor="#000080" align="center">
+        <td width="178" bgcolor="#F5E0EA">
+          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#8B1A45">
+            <tr><td bgcolor="#8B1A45" align="center">
               <font face="Arial" size="2" color="#FFFFFF"><b>NAVIGATION</b></font>
             </td></tr>
             <tr><td bgcolor="#FFFFFF">
@@ -496,11 +498,11 @@
 
           <br>
 
-          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#006699">
-            <tr><td bgcolor="#006699" align="center">
+          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#8B1A45">
+            <tr><td bgcolor="#8B1A45" align="center">
               <font face="Arial" size="1" color="#FFFFFF"><b>VOS AVANTAGES</b></font>
             </td></tr>
-            <tr><td bgcolor="#F0F8FF">
+            <tr><td bgcolor="#FFF0F5">
               <font face="Arial" size="1">
                 En faisant un don,<br>vous recevez :<br><br>
                 &#9658; <b>Carte de membre</b><br>
@@ -549,7 +551,7 @@
               </td>
             </tr>
             <tr>
-              <td bgcolor="#111133" align="center">
+              <td bgcolor="#2C0818" align="center">
 
                 <br>
                 <!-- Scene 3D -->
@@ -763,7 +765,7 @@
     </table>
 
     <!-- PIED DE PAGE -->
-    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#000033">
+    <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818">
       <tr><td align="center">
         <hr noshade size="2" color="#CC0000" width="780">
         <font face="Arial" size="2" color="#CCCCCC">
