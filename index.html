@@ -1,0 +1,1047 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="fr">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="description" content="Site officiel de campagne de Lionel JOSPIN - Candidat Socialiste a l'Election Presidentielle 2002">
+  <meta name="keywords" content="Jospin, Lionel, election, presidentielle, 2002, socialiste, PS, programme, France, Premier Ministre">
+  <meta name="author" content="Webmaster : jospin2002@wanadoo.fr">
+  <title>LIONEL JOSPIN 2002 - Candidat a la Presidence de la Republique Francaise</title>
+
+  <style type="text/css">
+  <!--
+
+  /* ================================================================
+     ANIMATIONS STYLE FLASH (remplacement natif de Macromedia Flash)
+     NB : exception volontaire aux standards 2002, Flash n'etant
+          plus supporte dans les navigateurs modernes.
+     ================================================================ */
+
+  /* --- Intro Flash --- */
+  #flash-intro {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: #000033;
+    z-index: 9999;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  #flash-intro.fade-out {
+    animation: intro-disparait 0.6s ease-in forwards;
+  }
+
+  @keyframes intro-disparait {
+    0%   { opacity: 1; }
+    100% { opacity: 0; pointer-events: none; }
+  }
+
+  /* Logo qui arrive en vrille */
+  #intro-logo {
+    font-family: "Arial Black", Impact, Arial, sans-serif;
+    font-size: 80px;
+    color: #FFFF00;
+    text-shadow: 4px 4px 0 #FF0000, 8px 8px 0 #0000AA;
+    margin-top: 120px;
+    animation: logo-vrille 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+  }
+
+  @keyframes logo-vrille {
+    0%   { transform: scale(6) rotate(720deg); opacity: 0; }
+    70%  { transform: scale(0.9) rotate(-10deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+  }
+
+  #intro-annee {
+    font-family: "Arial Black", Impact, Arial, sans-serif;
+    font-size: 52px;
+    color: #FFFFFF;
+    animation: logo-vrille 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
+  }
+
+  #intro-sous-titre {
+    color: #AACCFF;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    margin-top: 15px;
+    animation: sous-titre-apparait 1s ease 2.2s both;
+  }
+
+  @keyframes sous-titre-apparait {
+    0%   { opacity: 0; letter-spacing: 20px; }
+    100% { opacity: 1; letter-spacing: 4px; }
+  }
+
+  /* Barre de chargement */
+  #intro-loading-wrap {
+    width: 320px;
+    margin: 30px auto 0 auto;
+    animation: sous-titre-apparait 0.5s ease 1.5s both;
+  }
+
+  #intro-loading-bg {
+    width: 320px;
+    height: 22px;
+    background-color: #111133;
+    border: 2px solid #FFFF00;
+  }
+
+  #intro-loading-bar {
+    height: 22px;
+    width: 0%;
+    background-color: #FF0000;
+    animation: chargement 2.4s linear 1.5s both;
+  }
+
+  @keyframes chargement {
+    0%   { width: 0%;   background-color: #FF0000; }
+    40%  { width: 40%;  background-color: #FF8800; }
+    75%  { width: 75%;  background-color: #FFFF00; }
+    100% { width: 100%; background-color: #00FF00; }
+  }
+
+  #intro-loading-texte {
+    color: #CCCCCC;
+    font-family: "Courier New", monospace;
+    font-size: 11px;
+    margin-top: 6px;
+    animation: sous-titre-apparait 0.5s ease 1.5s both;
+  }
+
+  /* Bouton Passer l'intro */
+  #btn-skip {
+    display: none;
+    margin: 25px auto 0 auto;
+    background-color: transparent;
+    color: #888888;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    border: 1px solid #555555;
+    padding: 3px 10px;
+    cursor: pointer;
+  }
+
+  #btn-skip:hover {
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+  }
+
+  /* Etoiles particules */
+  .etoile-particule {
+    position: absolute;
+    bottom: -20px;
+    font-size: 18px;
+    color: #FFFF00;
+    animation: etoile-monte linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes etoile-monte {
+    0%   { transform: translateY(0)   rotate(0deg);   opacity: 1; }
+    100% { transform: translateY(-110vh) rotate(720deg); opacity: 0; }
+  }
+
+  /* ================================================================
+     STYLES GENERAUX DU SITE
+     ================================================================ */
+
+  body {
+    background-color: #DDEEFF;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHElEQVQI12NgYGD4z8BQDwAEgAF/QualIQAAAABJRU5ErkJggg==");
+    margin: 0;
+    padding: 10px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #000000;
+  }
+
+  a:link    { color: #0000CC; }
+  a:visited { color: #660066; }
+  a:hover   { color: #FF0000; text-decoration: underline; }
+  a:active  { color: #FF6600; }
+
+  .lien-nav {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+    padding: 5px 4px;
+  }
+
+  .lien-nav:hover {
+    color: #FFFF00;
+    text-decoration: none;
+  }
+
+  .lien-sidebar {
+    color: #000080;
+    font-size: 11px;
+    text-decoration: none;
+  }
+
+  .lien-sidebar:hover {
+    color: #FF0000;
+    background-color: #FFFFCC;
+  }
+
+  /* --- Animations decoratives --- */
+
+  /* Bandeau principal : shimmer */
+  @keyframes bandeau-shimmer {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  #bandeau-principal {
+    background: linear-gradient(270deg, #990000, #CC0000, #000066, #CC0000, #990000);
+    background-size: 400% 400%;
+    animation: bandeau-shimmer 5s ease infinite;
+  }
+
+  /* Etoiles clignotantes dans le bandeau */
+  @keyframes etoile-clignote {
+    0%,100% { color: #FFFF00; transform: scale(1);   }
+    50%      { color: #FFFFFF;  transform: scale(1.6); }
+  }
+
+  .etoile-clignote {
+    display: inline-block;
+    color: #FFFF00;
+    font-size: 18px;
+    animation: etoile-clignote 0.9s ease-in-out infinite;
+  }
+
+  /* Cellules de navigation : flash-hover */
+  .cellule-nav {
+    background-color: #BB0000;
+    cursor: pointer;
+    transition: background-color 0.08s;
+  }
+
+  .cellule-nav:hover {
+    background-color: #FF6600;
+  }
+
+  /* Badge NOUVEAU */
+  @keyframes badge-pulse {
+    0%,100% { background-color: #FF0000; transform: rotate(-4deg) scale(1);   }
+    50%      { background-color: #FF7700; transform: rotate( 4deg) scale(1.15); }
+  }
+
+  .badge-nouveau {
+    display: inline-block;
+    background-color: #FF0000;
+    color: #FFFF00;
+    font-size: 9px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1px 4px;
+    animation: badge-pulse 0.7s ease-in-out infinite;
+    vertical-align: middle;
+  }
+
+  /* Compteur visiteurs */
+  @keyframes compteur-pulse {
+    0%,100% { color: #CC0000; transform: scale(1);   }
+    50%      { color: #FF0000; transform: scale(1.15); }
+  }
+
+  .compteur {
+    display: inline-block;
+    font-family: "Courier New", monospace;
+    font-size: 20px;
+    font-weight: bold;
+    color: #CC0000;
+    animation: compteur-pulse 2s ease-in-out infinite;
+  }
+
+  /* Lignes de separation arc-en-ciel */
+  @keyframes arc-en-ciel {
+    0%   { border-top-color: #FF0000; }
+    16%  { border-top-color: #FF8800; }
+    33%  { border-top-color: #FFFF00; }
+    50%  { border-top-color: #00CC00; }
+    66%  { border-top-color: #0000FF; }
+    83%  { border-top-color: #9900CC; }
+    100% { border-top-color: #FF0000; }
+  }
+
+  .hr-rainbow {
+    border: none;
+    border-top: 2px solid #FF0000;
+    animation: arc-en-ciel 1.5s linear infinite;
+    margin: 5px 0;
+  }
+
+  /* Effet de survol sur les items du programme */
+  .item-prog {
+    padding: 3px 5px;
+    transition: background-color 0.15s;
+    cursor: default;
+  }
+
+  .item-prog:hover {
+    background-color: #FFFFCC;
+    border-left: 3px solid #CC0000;
+    padding-left: 2px;
+  }
+
+  /* Lueur sur la photo */
+  @keyframes lueur-photo {
+    0%,100% { filter: brightness(1)   saturate(1);   box-shadow: 0 0 4px #CC0000; }
+    50%      { filter: brightness(1.2) saturate(1.4); box-shadow: 0 0 12px #FF0000; }
+  }
+
+  .photo-candidate {
+    animation: lueur-photo 3s ease-in-out infinite;
+    border: 3px solid #CC0000;
+  }
+
+  /* Clignotement texte */
+  @keyframes clignotement {
+    0%,49%  { visibility: visible; }
+    50%,100% { visibility: hidden; }
+  }
+
+  .clignotant {
+    animation: clignotement 1s step-end infinite;
+  }
+
+  -->
+  </style>
+
+</head>
+
+<body bgcolor="#DDEEFF" text="#000000" link="#0000CC" vlink="#660066" alink="#FF6600">
+
+
+<!-- ============================================================
+     INTRO STYLE FLASH
+     ============================================================ -->
+<div id="flash-intro">
+
+  <!-- Particules etoiles -->
+  <span class="etoile-particule" style="left:5%;  animation-duration:3.2s; animation-delay:0.0s;">&#9733;</span>
+  <span class="etoile-particule" style="left:12%; animation-duration:2.1s; animation-delay:0.4s;">&#9733;</span>
+  <span class="etoile-particule" style="left:22%; animation-duration:4.0s; animation-delay:0.9s;">&#9733;</span>
+  <span class="etoile-particule" style="left:33%; animation-duration:2.8s; animation-delay:0.2s;">&#9733;</span>
+  <span class="etoile-particule" style="left:45%; animation-duration:3.5s; animation-delay:0.7s;">&#9733;</span>
+  <span class="etoile-particule" style="left:57%; animation-duration:2.3s; animation-delay:1.1s;">&#9733;</span>
+  <span class="etoile-particule" style="left:68%; animation-duration:3.9s; animation-delay:0.3s;">&#9733;</span>
+  <span class="etoile-particule" style="left:78%; animation-duration:2.6s; animation-delay:0.6s;">&#9733;</span>
+  <span class="etoile-particule" style="left:88%; animation-duration:3.1s; animation-delay:1.3s;">&#9733;</span>
+  <span class="etoile-particule" style="left:95%; animation-duration:2.4s; animation-delay:0.1s;">&#9733;</span>
+
+  <div id="intro-logo">JOSPIN</div>
+  <div id="intro-annee">2002</div>
+  <div id="intro-sous-titre">CANDIDAT A LA PRESIDENCE DE LA REPUBLIQUE</div>
+
+  <div id="intro-loading-wrap">
+    <div id="intro-loading-bg">
+      <div id="intro-loading-bar"></div>
+    </div>
+    <div id="intro-loading-texte">Chargement... Ce site necessite Internet Explorer 5.5 ou Netscape 6</div>
+  </div>
+
+  <button id="btn-skip" onclick="skipIntro()">[ Passer l'intro ]</button>
+</div>
+
+
+<!-- ============================================================
+     DEBUT DU SITE PRINCIPAL
+     ============================================================ -->
+<center>
+<table width="800" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+
+
+      <!-- ======================================================
+           BANDEAU PRINCIPAL
+           ====================================================== -->
+      <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">
+        <tr>
+
+          <!-- Logo PS gauche -->
+          <td width="140" bgcolor="#000055" align="center" valign="middle">
+            <br>
+            <font face="Arial Black, Arial" size="6" color="#FFFF00">
+              <b>&#9733; PS &#9733;</b>
+            </font>
+            <br>
+            <font face="Arial" size="1" color="#AAAAFF">PARTI SOCIALISTE</font>
+            <br><br>
+          </td>
+
+          <!-- Titre central -->
+          <td width="520" align="center" valign="middle" bgcolor="#CC0000">
+            <br>
+            <font face="Arial Black, Impact, Arial" size="7" color="#FFFFFF">
+              <b>LIONEL JOSPIN</b>
+            </font>
+            <br>
+            <font face="Arial" size="3" color="#FFFF00">
+              <b><i>Candidat a la Presidence de la Republique</i></b>
+            </font>
+            <br>
+            <font face="Arial" size="2" color="#FFCCCC">
+              Election Presidentielle Francaise &mdash; Avril 2002
+            </font>
+            <br><br>
+          </td>
+
+          <!-- Etoiles droite -->
+          <td width="140" bgcolor="#000055" align="center" valign="middle">
+            <br>
+            <span class="etoile-clignote">&#9733;</span>
+            <span class="etoile-clignote" style="animation-delay:0.3s">&#9733;</span>
+            <span class="etoile-clignote" style="animation-delay:0.6s">&#9733;</span>
+            <br>
+            <font face="Arial" size="1" color="#AAAAFF">VOTEZ JOSPIN</font>
+            <br>
+            <span class="etoile-clignote" style="animation-delay:0.9s">&#9733;</span>
+            <span class="etoile-clignote" style="animation-delay:0.15s">&#9733;</span>
+            <span class="etoile-clignote" style="animation-delay:0.45s">&#9733;</span>
+            <br><br>
+          </td>
+
+        </tr>
+      </table>
+
+
+      <!-- ======================================================
+           BANDEAU DEFILANT
+           ====================================================== -->
+      <table width="800" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td width="90" bgcolor="#CC0000" align="center">
+            <font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU :&nbsp;</b></font>
+          </td>
+          <td bgcolor="#FFFF00">
+            <marquee behavior="scroll" direction="left" scrollamount="4">
+              <font face="Arial" size="2" color="#CC0000">
+                <b>&#9733; JOSPIN PRESIDENT ! &#9733; Le programme socialiste pour une France unie &#9733; Retrouvez tous les discours de Lionel Jospin &#9733; Meeting du 15 mars a Lyon : un succes populaire ! &#9733; La gauche est en marche vers l'Elysee &#9733; 120 propositions pour la France &#9733;</b>
+              </font>
+            </marquee>
+          </td>
+        </tr>
+      </table>
+
+
+      <!-- ======================================================
+           BARRE DE NAVIGATION
+           ====================================================== -->
+      <table width="800" border="0" cellpadding="0" cellspacing="1" bgcolor="#660000">
+        <tr>
+          <td class="cellule-nav" align="center" width="133">
+            <a href="index.html" class="lien-nav">ACCUEIL</a>
+          </td>
+          <td class="cellule-nav" align="center" width="133">
+            <a href="programme.html" class="lien-nav">PROGRAMME</a>
+          </td>
+          <td class="cellule-nav" align="center" width="133">
+            <a href="biographie.html" class="lien-nav">BIOGRAPHIE</a>
+          </td>
+          <td class="cellule-nav" align="center" width="134">
+            <a href="discours.html" class="lien-nav">DISCOURS</a>
+          </td>
+          <td class="cellule-nav" align="center" width="133">
+            <a href="soutiens.html" class="lien-nav">SOUTIENS</a>
+          </td>
+          <td class="cellule-nav" align="center" width="134">
+            <a href="contact.html" class="lien-nav">CONTACT</a>
+          </td>
+        </tr>
+      </table>
+
+
+      <!-- ======================================================
+           CONTENU PRINCIPAL : 3 COLONNES
+           ====================================================== -->
+      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF">
+        <tr valign="top">
+
+
+          <!-- ================================================
+               COLONNE GAUCHE
+               ================================================ -->
+          <td width="178" bgcolor="#E8E8FF">
+
+            <!-- Navigation -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#000080">
+              <tr>
+                <td bgcolor="#000080" align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>NAVIGATION</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+                    <b>&raquo; <a href="index.html" class="lien-sidebar">Accueil</a></b><br>
+                    <b>&raquo; <a href="programme.html" class="lien-sidebar">Le Programme</a></b><br>
+                    <b>&raquo; <a href="biographie.html" class="lien-sidebar">Biographie</a></b><br>
+                    <b>&raquo; <a href="agenda.html" class="lien-sidebar">Agenda meetings</a></b><br>
+                    <b>&raquo; <a href="discours.html" class="lien-sidebar">Discours</a></b><br>
+                    <b>&raquo; <a href="presse.html" class="lien-sidebar">Revue de presse</a></b><br>
+                    <b>&raquo; <a href="soutiens.html" class="lien-sidebar">Ils soutiennent</a></b><br>
+                    <b>&raquo; <a href="rejoindre.html" class="lien-sidebar">Nous rejoindre</a></b><br>
+                    <b>&raquo; <a href="livre-or.html" class="lien-sidebar">Livre d'or</a></b><br>
+                    <b>&raquo; <a href="contact.html" class="lien-sidebar">Contact</a></b>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Compteur visiteurs -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#CC0000">
+              <tr>
+                <td bgcolor="#CC0000" align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>VISITEURS</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFEE" align="center">
+                  <font face="Arial" size="1">Vous etes le visiteur n&deg;</font><br>
+                  <span class="compteur" id="num-visiteur">002&#160;847</span>
+                  <br>
+                  <font face="Arial" size="1" color="#666666">depuis le 01/01/2002</font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Sondages -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#CC6600">
+              <tr>
+                <td bgcolor="#CC6600" align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>SONDAGES</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFAEE" align="center">
+                  <font face="Arial" size="1"><b>Intentions 1er tour</b><br>(BVA &mdash; Mars 2002)</font>
+                  <br><br>
+                  <table border="0" cellpadding="1" cellspacing="2">
+                    <tr>
+                      <td align="right"><font face="Arial" size="1">Jospin</font></td>
+                      <td><table border="0" cellpadding="0" cellspacing="0" width="64" height="10" bgcolor="#CC0000"><tr><td></td></tr></table></td>
+                      <td><font face="Arial" size="1"><b>20%</b></font></td>
+                    </tr>
+                    <tr>
+                      <td align="right"><font face="Arial" size="1">Chirac</font></td>
+                      <td><table border="0" cellpadding="0" cellspacing="0" width="70" height="10" bgcolor="#000080"><tr><td></td></tr></table></td>
+                      <td><font face="Arial" size="1"><b>22%</b></font></td>
+                    </tr>
+                    <tr>
+                      <td align="right"><font face="Arial" size="1">Le Pen</font></td>
+                      <td><table border="0" cellpadding="0" cellspacing="0" width="34" height="10" bgcolor="#333333"><tr><td></td></tr></table></td>
+                      <td><font face="Arial" size="1"><b>11%</b></font></td>
+                    </tr>
+                    <tr>
+                      <td align="right"><font face="Arial" size="1">Autres</font></td>
+                      <td><table border="0" cellpadding="0" cellspacing="0" width="48" height="10" bgcolor="#888888"><tr><td></td></tr></table></td>
+                      <td><font face="Arial" size="1"><b>47%</b></font></td>
+                    </tr>
+                  </table>
+                  <br>
+                  <font face="Arial" size="1" color="#666666"><i>Les sondages sont favorables,<br>nous partons confiants !</i></font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Liens utiles -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#006600">
+              <tr>
+                <td bgcolor="#006600" align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>LIENS</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+                    <b>&raquo; <a href="http://www.parti-socialiste.fr" class="lien-sidebar">Parti Socialiste</a></b><br>
+                    <b>&raquo; <a href="http://www.gouvernement.fr" class="lien-sidebar">Gouvernement.fr</a></b><br>
+                    <b>&raquo; <a href="http://www.elysee.fr" class="lien-sidebar">Elysee.fr</a></b><br>
+                    <b>&raquo; <a href="http://www.assemblee-nationale.fr" class="lien-sidebar">Assemblee Nationale</a></b>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Partenaires bannières 88x31 -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#555555">
+              <tr>
+                <td bgcolor="#333333" align="center">
+                  <font face="Arial" size="1" color="#FFFFFF"><b>PARTENAIRES</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF" align="center">
+                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#CC0000">
+                    <tr><td align="center" valign="middle">
+                      <font face="Arial" size="1" color="#FFFFFF"><b>PARTI<br>SOCIALISTE</b></font>
+                    </td></tr>
+                  </table>
+                  <br>
+                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#008800">
+                    <tr><td align="center" valign="middle">
+                      <font face="Arial" size="1" color="#FFFFFF"><b>LES VERTS<br>2002</b></font>
+                    </td></tr>
+                  </table>
+                  <br>
+                  <table width="88" height="31" border="1" cellpadding="0" cellspacing="0" bgcolor="#000066">
+                    <tr><td align="center" valign="middle">
+                      <font face="Arial" size="1" color="#FFFFFF"><b>PCF<br>FRANCE</b></font>
+                    </td></tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+          </td><!-- fin colonne gauche -->
+
+
+          <!-- ================================================
+               COLONNE CENTRALE
+               ================================================ -->
+          <td width="444" bgcolor="#FFFFFF">
+
+
+            <!-- Message de bienvenue -->
+            <table width="440" border="2" cellpadding="6" cellspacing="0" bordercolor="#CC0000">
+              <tr bgcolor="#CC0000">
+                <td>
+                  <font face="Arial" size="3" color="#FFFFFF">
+                    <b>&#9733; BIENVENUE SUR LE SITE OFFICIEL DE CAMPAGNE &#9733;</b>
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFF5F5">
+                  <font face="Arial" size="2">
+                    <b>Chers compatriotes,</b><br><br>
+                    Apres cinq annees de cohabitation a la tete du gouvernement,
+                    <b>Lionel Jospin</b> se presente devant vous avec un projet ambitieux
+                    et concret pour une France plus juste, plus solidaire, et plus moderne.<br><br>
+                    La gauche plurielle a prouve qu'elle savait gouverner.
+                    Ensemble, nous pouvons batir une France pour <i>tous</i>.<br><br>
+                    <font color="#CC0000" size="3">
+                      <b>&#171; Changer la vie. Changer la France. &#187;</b>
+                    </font>
+                    <br><i>&mdash; Lionel Jospin</i>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Dernieres nouvelles -->
+            <table width="440" border="1" cellpadding="4" cellspacing="0" bordercolor="#000080">
+              <tr bgcolor="#000080">
+                <td>
+                  <font face="Arial" size="2" color="#FFFFFF"><b>DERNIERES NOUVELLES</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+
+                    <div class="item-prog">
+                      <span class="badge-nouveau">NOUVEAU</span>&nbsp;
+                      <b>15/03/2002</b> &mdash;
+                      <a href="discours.html">Grand meeting de Lyon : Jospin mobilise 15 000 personnes</a>
+                    </div>
+                    <hr class="hr-rainbow">
+
+                    <div class="item-prog">
+                      <b>12/03/2002</b> &mdash;
+                      <a href="programme.html">Publication du programme complet : 120 propositions pour la France</a>
+                    </div>
+                    <hr class="hr-rainbow">
+
+                    <div class="item-prog">
+                      <span class="badge-nouveau">NOUVEAU</span>&nbsp;
+                      <b>10/03/2002</b> &mdash;
+                      <a href="presse.html">Le Monde : &laquo;&nbsp;Jospin au coeur de la campagne&nbsp;&raquo;</a>
+                    </div>
+                    <hr class="hr-rainbow">
+
+                    <div class="item-prog">
+                      <b>05/03/2002</b> &mdash;
+                      <a href="soutiens.html">Aubry, Lang et Royal appellent a voter Jospin des le 1er tour</a>
+                    </div>
+                    <hr class="hr-rainbow">
+
+                    <div class="item-prog">
+                      <b>28/02/2002</b> &mdash;
+                      <a href="agenda.html">Agenda de campagne : 47 villes en 30 jours, le record !</a>
+                    </div>
+
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Programme en 5 points -->
+            <table width="440" border="1" cellpadding="0" cellspacing="0" bordercolor="#006600">
+              <tr bgcolor="#006600">
+                <td colspan="2" align="left">
+                  <font face="Arial" size="2" color="#FFFFFF">&nbsp;<b>LE PROGRAMME EN 5 POINTS</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td width="30" bgcolor="#99CC99" align="center" valign="top">
+                  <font face="Arial Black, Arial" size="4" color="#006600"><b>1</b></font>
+                </td>
+                <td class="item-prog" bgcolor="#F5FFF5">
+                  <font face="Arial" size="2">
+                    <b>Emploi</b> &mdash; Creation de 700 000 emplois-jeunes, reduction du chomage a 5&#37; d'ici 2007
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="30" bgcolor="#99CC99" align="center" valign="top">
+                  <font face="Arial Black, Arial" size="4" color="#006600"><b>2</b></font>
+                </td>
+                <td class="item-prog" bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+                    <b>Education</b> &mdash; Revalorisation du metier d'enseignant, ecole gratuite de la maternelle au bac
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="30" bgcolor="#99CC99" align="center" valign="top">
+                  <font face="Arial Black, Arial" size="4" color="#006600"><b>3</b></font>
+                </td>
+                <td class="item-prog" bgcolor="#F5FFF5">
+                  <font face="Arial" size="2">
+                    <b>Sante</b> &mdash; Couverture medicale universelle etendue, fin des deserts medicaux
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="30" bgcolor="#99CC99" align="center" valign="top">
+                  <font face="Arial Black, Arial" size="4" color="#006600"><b>4</b></font>
+                </td>
+                <td class="item-prog" bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+                    <b>Securite</b> &mdash;
+                    <span class="clignotant"><font color="#FF0000"><b>Mon programme n'est pas socialiste.</b></font></span>
+                    Reforme de la police de proximite.
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td width="30" bgcolor="#99CC99" align="center" valign="top">
+                  <font face="Arial Black, Arial" size="4" color="#006600"><b>5</b></font>
+                </td>
+                <td class="item-prog" bgcolor="#F5FFF5">
+                  <font face="Arial" size="2">
+                    <b>Europe</b> &mdash; Pour une Europe sociale et solidaire, elargissement progressif
+                  </font>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" bgcolor="#E8FFE8" align="right">
+                  <font face="Arial" size="1">
+                    &nbsp;<a href="programme.html">Lire le programme complet &raquo;</a>&nbsp;
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Citation mise en avant -->
+            <table width="440" border="0" cellpadding="8" cellspacing="0" bgcolor="#FFFFCC">
+              <tr>
+                <td align="center">
+                  <font face="Times New Roman, Times, serif" size="4" color="#CC0000">
+                    <i>&laquo;&nbsp;La politique, c'est la possibilite d'agir sur le monde.<br>
+                    Ne laissons pas cette chance s'echapper.&nbsp;&raquo;</i>
+                  </font>
+                  <br><br>
+                  <font face="Arial" size="2" color="#000000"><b>&mdash; Lionel Jospin, Toulouse, fevrier 2002</b></font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Livre d'or -->
+            <table width="440" border="1" cellpadding="4" cellspacing="0" bordercolor="#CC6600">
+              <tr bgcolor="#CC6600">
+                <td>
+                  <font face="Arial" size="2" color="#FFFFFF"><b>LIVRE D'OR</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFF0">
+                  <font face="Arial" size="2">
+                    <i>&laquo;&nbsp;Enfin un homme sincere et competent pour diriger notre pays !&nbsp;&raquo;</i><br>
+                    <b>&mdash; Marie-Claire D., Bordeaux</b>
+                    <br><br>
+                    <i>&laquo;&nbsp;Jospin, c'est l'espoir ! La gauche au pouvoir en 2002 !&nbsp;&raquo;</i><br>
+                    <b>&mdash; Jean-Pierre M., Paris 20e</b>
+                    <br><br>
+                    <i>&laquo;&nbsp;Je vote pour la premiere fois et ce sera Jospin, sans hesitation !&nbsp;&raquo;</i><br>
+                    <b>&mdash; Kevin L., 18 ans, Rennes</b>
+                    <br><br>
+                    <a href="livre-or.html"><font face="Arial" size="2">&raquo; Signer le livre d'or</font></a>
+                    &nbsp;&mdash;&nbsp;
+                    <a href="livre-or.html"><font face="Arial" size="2">Lire tous les messages</font></a>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+          </td><!-- fin colonne centrale -->
+
+
+          <!-- ================================================
+               COLONNE DROITE
+               ================================================ -->
+          <td width="178" bgcolor="#FFF0F0">
+
+            <!-- Photo Jospin -->
+            <table width="166" border="2" cellpadding="3" cellspacing="0" bordercolor="#CC0000" class="photo-candidate">
+              <tr bgcolor="#CC0000">
+                <td align="center">
+                  <font face="Arial" size="1" color="#FFFFFF"><b>LIONEL JOSPIN</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td align="center" bgcolor="#FFFFFF">
+                  <table width="144" height="190" border="0" cellpadding="0" cellspacing="0" bgcolor="#DDDDDD">
+                    <tr>
+                      <td align="center" valign="middle">
+                        <font face="Arial" size="1" color="#666666">
+                          [ Photo officielle ]<br>
+                          <i>Lionel Jospin<br>Premier Ministre<br>1997&ndash;2002</i>
+                        </font>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Agenda meetings -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#000080">
+              <tr bgcolor="#000080">
+                <td align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>AGENDA</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF">
+                  <font face="Arial" size="2">
+                    <b><font color="#CC0000">20/03</font></b> &mdash; Marseille<br>
+                    <font size="1" color="#666666">Palais des Sports &mdash; 20h00</font>
+                    <br><br>
+                    <b><font color="#CC0000">25/03</font></b> &mdash; Paris<br>
+                    <font size="1" color="#666666">Bercy &mdash; 19h30</font>
+                    <br><br>
+                    <b><font color="#CC0000">01/04</font></b> &mdash; Lille<br>
+                    <font size="1" color="#666666">Grand Palais &mdash; 18h00</font>
+                    <br><br>
+                    <b><font color="#CC0000">10/04</font></b> &mdash; Toulouse<br>
+                    <font size="1" color="#666666">Zenith &mdash; 20h00</font>
+                    <br><br>
+                    <span class="badge-nouveau">J&ndash;21</span>&nbsp;
+                    <b>21/04 &mdash; VOTE !</b>
+                    <br>
+                    <font size="1" color="#CC0000"><b>Ca va etre notre jour !</b></font>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Telecharger le programme -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#990099">
+              <tr bgcolor="#990099">
+                <td align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>TELECHARGER</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFF5FF" align="center">
+                  <font face="Arial" size="2">
+                    <a href="programme.pdf"><b>Programme PDF</b></a>
+                  </font>
+                  <br>
+                  <font face="Arial" size="1" color="#666666">(2,4 Mo &mdash; Acrobat Reader<br>requis)</font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Newsletter -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#006699">
+              <tr bgcolor="#006699">
+                <td align="center">
+                  <font face="Arial" size="2" color="#FFFFFF"><b>NEWSLETTER</b></font>
+                </td>
+              </tr>
+              <tr>
+                <td bgcolor="#F0F8FF">
+                  <font face="Arial" size="1">Recevez les actualites par e-mail :</font>
+                  <br><br>
+                  <form action="inscription.php" method="post">
+                    <input type="text" name="email" size="16"
+                      style="font-size:10px; border:1px solid #006699; width:100%;">
+                    <br><br>
+                    <input type="submit" value="S'inscrire !"
+                      style="background-color:#006699; color:#FFFFFF; font-size:11px; font-weight:bold; border:1px solid #004477; cursor:pointer; width:100%;">
+                  </form>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+            <!-- Compatibilite navigateur -->
+            <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#999999">
+              <tr>
+                <td bgcolor="#EEEEEE" align="center">
+                  <font face="Arial" size="1" color="#333333">
+                    Optimise pour<br>
+                    <b>IE 5.5 &amp; Netscape 6</b><br>
+                    Resolution : <b>800x600</b>
+                  </font>
+                </td>
+              </tr>
+            </table>
+
+            <br>
+
+          </td><!-- fin colonne droite -->
+
+
+        </tr>
+      </table><!-- fin 3 colonnes -->
+
+
+      <!-- ======================================================
+           PIED DE PAGE
+           ====================================================== -->
+      <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#000033">
+        <tr>
+          <td align="center">
+            <hr noshade size="2" color="#CC0000" width="780">
+            <font face="Arial" size="2" color="#CCCCCC">
+              <b>JOSPIN 2002</b> &mdash; Site Officiel de Campagne
+              &mdash; <a href="mentions-legales.html" style="color:#FFFF99;">Mentions legales</a>
+              &mdash; <a href="contact.html" style="color:#FFFF99;">Contact</a>
+              &mdash; <a href="plan-site.html" style="color:#FFFF99;">Plan du site</a>
+              &mdash; <a href="livre-or.html" style="color:#FFFF99;">Livre d'or</a>
+            </font>
+            <br>
+            <font face="Arial" size="1" color="#888888">
+              &copy; 2002 Parti Socialiste &mdash; Jospin2002 &mdash; Tous droits reserves
+              &mdash; <a href="mailto:webmaster@jospin2002.fr" style="color:#FFFF99;">webmaster@jospin2002.fr</a>
+              &mdash; Hebergement : <a href="http://www.wanadoo.fr" style="color:#FFFF99;">Wanadoo</a>
+            </font>
+            <br>
+            <font face="Arial" size="1" color="#666666">
+              <i>Site cree avec Microsoft FrontPage 2000 &mdash; Macromedia Flash 5 &mdash; Adobe Photoshop 6</i>
+            </font>
+            <br><br>
+          </td>
+        </tr>
+      </table>
+
+
+    </td>
+  </tr>
+</table>
+</center>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script type="text/javascript">
+<!--
+
+// --- Suppression de l'intro apres les animations ---
+var introEl = document.getElementById('flash-intro');
+var btnSkip = document.getElementById('btn-skip');
+
+// Afficher le bouton "Passer l'intro" apres 2 secondes
+setTimeout(function() {
+  btnSkip.style.display = 'inline-block';
+}, 2000);
+
+// Supprimer l'intro automatiquement apres 4.5 secondes
+setTimeout(function() {
+  finIntro();
+}, 4500);
+
+function skipIntro() {
+  finIntro();
+}
+
+function finIntro() {
+  introEl.classList.add('fade-out');
+  setTimeout(function() {
+    introEl.style.display = 'none';
+  }, 700);
+}
+
+// --- Simulation compteur de visiteurs ---
+var compteurEl = document.getElementById('num-visiteur');
+var nbVisiteurs = 2847;
+
+function formaterCompteur(n) {
+  var s = '000' + n;
+  s = s.slice(-7);
+  return s.slice(0, 3) + '\u00a0' + s.slice(3);
+}
+
+setInterval(function() {
+  if (Math.random() < 0.15) {
+    nbVisiteurs++;
+    compteurEl.innerHTML = formaterCompteur(nbVisiteurs);
+  }
+}, 4000);
+
+// --- Effet rollover Flash sur les cellules de navigation ---
+var cellules = document.getElementsByClassName('cellule-nav');
+for (var i = 0; i < cellules.length; i++) {
+  cellules[i].onmouseover = function() {
+    this.style.backgroundColor = '#FF6600';
+  };
+  cellules[i].onmouseout = function() {
+    this.style.backgroundColor = '#BB0000';
+  };
+}
+
+//-->
+</script>
+
+</body>
+</html>
