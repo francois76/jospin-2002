@@ -190,6 +190,11 @@
     body > * { display: none !important; }
     #zone-impression { display: block !important; }
     #zone-impression { position: static !important; }
+    /* Forcer une seule page */
+    @page { size: A4 portrait; margin: 1cm 1.5cm; }
+    #formulaire-don { padding: 8px; font-size: 11pt; }
+    /* Supprimer les lignes blanches de séparation entre sections */
+    #formulaire-don br { display: none; }
   }
 
   #zone-impression {
@@ -484,7 +489,7 @@
           <div style="font-size:9pt; color:#666666;">Association de financement de campagne &mdash; Agrement prefectoral n&deg;2002-IDF-047</div>
         </td>
         <td align="right" style="font-size:9pt; color:#666666;">
-          &#9733;&#9733;&#9733;<br>
+          <img src="ps.png" alt="Parti Socialiste" style="width:48px; height:auto; display:block; margin:0 0 4px auto;"><br>
           <b>PARTI SOCIALISTE</b><br>
           10, rue de Solferino<br>
           75007 PARIS
@@ -578,11 +583,9 @@
     <!-- Attention : pas de CB -->
     <table width="100%" border="1" cellpadding="6" cellspacing="0" style="border-color:#CC0000;">
       <tr>
-        <td bgcolor="#FFF5F5">
-          <b style="color:#CC0000;">IMPORTANT :</b> En raison des limitations techniques actuelles d'Internet,
-          <b>le paiement par carte bancaire en ligne n'est pas possible.</b>
-          Nous vous remercions de nous faire parvenir votre don par cheque ou mandat postal
-          a l'adresse suivante :<br>
+        <td bgcolor="#FFF5F5" style="padding:4px 6px; font-size:10pt;">
+          <b style="color:#CC0000;">IMPORTANT :</b> <b>Paiement par carte bancaire non disponible.</b>
+          Envoyer ch&egrave;que ou mandat postal &agrave; :
           <b>Association Jospin 2002 &mdash; BP 2002 &mdash; 75007 Paris</b>
         </td>
       </tr>
@@ -594,10 +597,8 @@
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td>
-          Date : ______ / ______ / 2002
-          <br><br>
-          Signature :
-          <br><br><br><br>
+          Date : ______ / ______ / 2002<br>
+          Signature :<br><br><br>
           ____________________________________
         </td>
         <td align="right" valign="top">
@@ -621,9 +622,8 @@
                   <div style="font-size:8pt; margin-top:8px;">Nom : <span id="print-carte-nom" style="text-decoration:underline;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
                   <div style="font-size:8pt; margin-top:4px;">Membre n&deg; : <b style="font-size:10pt;" id="print-num-membre">0000</b></div>
                   <div style="font-size:7pt; color:#FFCCCC; margin-top:8px;">Valable pour l'election du 21 avril 2002</div>
-                  <div style="position:absolute; bottom:8px; right:10px; font-size:16pt; color:#FFFF00; font-weight:bold;">&#9733; PS</div>
                 </div>
-                <div style="font-size:8pt; color:#666666; margin-top:3px; font-style:italic;">Decouper et conserver</div>
+                <div style="font-size:8pt; color:#666666; margin-top:8px; font-style:italic;">D&eacute;couper et conserver</div>
               </td>
             </tr>
           </table>
@@ -631,11 +631,10 @@
       </tr>
     </table>
 
-    <hr style="border-top:1px solid #999999; margin-top:12px;">
-    <div style="font-size:8pt; color:#666666; text-align:center;">
-      Conformement a la loi du 11 mars 1988 relative a la transparence financiere de la vie politique, les dons
-      de personnes physiques a une association de financement electorale sont plafonnes a 4 600 &euro; par donateur.
-      Tout don ouvre droit a une reduction d'impot sur le revenu egale a 66% du montant verse dans la limite de 20% du revenu imposable.
+    <hr style="border-top:1px solid #999999; margin-top:6px;">
+    <div style="font-size:7.5pt; color:#666666; text-align:center;">
+      Loi du 11 mars 1988 &mdash; Dons plafonn&eacute;s &agrave; 4 600 &euro; par donateur (personnes physiques uniquement).
+      R&eacute;duction d&rsquo;imp&ocirc;t : 66&nbsp;% du montant vers&eacute;, dans la limite de 20&nbsp;% du revenu imposable.
     </div>
 
   </div>
