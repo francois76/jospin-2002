@@ -1,0 +1,40 @@
+/* ============================================================
+   EFFET ECRAN CRT - Styles partages entre toutes les pages
+   Inspire du CodePen de Lucas Bebber (XJRdrV)
+   Intensite reduite pour un rendu tres subtil.
+   ============================================================ */
+
+/*
+   Overlay fixe superpose a l'ensemble de la page.
+   Deux gradients combines :
+     1) Scanlines horizontales a 2px : bandes alternant transparent et
+        tres leger assombrissement, reproduisant les lignes de balayage
+        des tubes cathodiques.
+     2) Triades RGB verticales a 3px : fines colonnes colorees imitant
+        les pastilles de phosphore (rouge / vert / bleu) des ecrans CRT.
+   Ensemble, ces deux motifs crees l'aspect ondulatoire caracteristique
+   sans aucune animation.
+*/
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9998;
+  background:
+    linear-gradient(
+      rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.05) 50%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.022),
+      rgba(0, 255, 0, 0.010),
+      rgba(0, 0, 255, 0.022)
+    );
+  background-size: 100% 2px, 3px 100%;
+}
