@@ -10,6 +10,50 @@
   document.body.appendChild(div);
 })();
 
+// --- Chargement progressif d'une image par tronçons haut->bas (simulation 56k) ---
+function loadImageProgressively(imgEl, src) {
+  // 3 ou 4 tronçons, tirage indépendant par image
+  var numChunks = Math.random() < 0.5 ? 3 : 4;
+
+  // Points de coupure aléatoires en pourcentage (1–98)
+  var breaks = [];
+  for (var j = 0; j < numChunks - 1; j++) {
+    breaks.push(1 + Math.floor(Math.random() * 98));
+  }
+  breaks.sort(function(a, b) { return a - b; });
+
+  // Dédoublonnage
+  var uBreaks = [];
+  for (var u = 0; u < breaks.length; u++) {
+    if (u === 0 || breaks[u] !== breaks[u - 1]) uBreaks.push(breaks[u]);
+  }
+
+  // Liste des seuils de révélation (en % depuis le haut), se termine à 100
+  var stops = uBreaks.concat([100]);
+
+  // Masquer l'image dès maintenant, avant le chargement
+  imgEl.style.clipPath = 'inset(0 0 100% 0)';
+
+  imgEl.onload = function() {
+    imgEl.onload = null;
+    var delay = 0;
+    for (var c = 0; c < stops.length; c++) {
+      (function(pct, d) {
+        setTimeout(function() {
+          if (pct >= 100) {
+            imgEl.style.clipPath = '';
+          } else {
+            imgEl.style.clipPath = 'inset(0 0 ' + (100 - pct) + '% 0)';
+          }
+        }, d);
+      })(stops[c], delay);
+      delay += 250 + Math.floor(Math.random() * 500);
+    }
+  };
+
+  imgEl.src = src;
+}
+
 // --- Simulation connexion bas debit 56k ---
 function initBasDebit() {
   function rand(base, spread) {
@@ -54,7 +98,7 @@ function initBasDebit() {
   setTimeout(function() {
     var imgs = document.getElementsByTagName('img');
     for (var i = 0; i < imgs.length; i++) {
-      if (imgSrcs[i]) imgs[i].src = imgSrcs[i];
+      if (imgSrcs[i]) loadImageProgressively(imgs[i], imgSrcs[i]);
     }
     var b = document.body;
     b.className = b.className.replace(/\bbd-init\b/g, '').trim();
