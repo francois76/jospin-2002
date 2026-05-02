@@ -994,7 +994,7 @@ function lancerSplash(callback) {
   var bar = document.getElementById('splash-progress-bar');
   var label = document.getElementById('splash-progress-label');
   var start = Date.now();
-  var dur = 2800;
+  var dur = 1000;
   function anim() {
     var elapsed = Date.now() - start;
     var pct = Math.min(100, Math.round((elapsed / dur) * 100));
@@ -1018,14 +1018,27 @@ function afficherContenuFlash() {
 
 // Initialisation au chargement
 window.addEventListener('load', function() {
-  var flashInstalle = localStorage.getItem('flash_installed');
-  if (!flashInstalle) {
-    // Premiere visite : montrer le bloc "plugin manquant"
-    document.getElementById('flash-no-plugin').style.display = 'flex';
+  function demarrerFlash() {
+    var flashInstalle = localStorage.getItem('flash_installed');
+    if (!flashInstalle) {
+      document.getElementById('flash-no-plugin').style.display = 'flex';
+    } else {
+      document.getElementById('flash-no-plugin').style.display = 'none';
+      lancerSplash(afficherContenuFlash);
+    }
+  }
+
+  // Lancer le widget Flash en dernier, apres la simulation bas debit
+  if (document.body.classList.contains('bd-init')) {
+    var obs = new MutationObserver(function() {
+      if (!document.body.classList.contains('bd-init')) {
+        obs.disconnect();
+        demarrerFlash();
+      }
+    });
+    obs.observe(document.body, { attributes: true, attributeFilter: ['class'] });
   } else {
-    // Flash "installe" : splash puis contenu
-    document.getElementById('flash-no-plugin').style.display = 'none';
-    lancerSplash(afficherContenuFlash);
+    demarrerFlash();
   }
 });
 
