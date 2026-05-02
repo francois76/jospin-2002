@@ -237,6 +237,42 @@ function initTicker() {
   requestAnimationFrame(tick);
 }
 
+// --- Detection du navigateur et alerte si non-IE ---
+function initNavigateur() {
+  var ua = navigator.userAgent;
+  var nomNav = "Navigateur inconnu";
+  var estIE = false;
+
+  if (ua.indexOf("MSIE") != -1 || ua.indexOf("Trident") != -1) {
+    nomNav = "Internet Explorer";
+    estIE  = true;
+  } else if (ua.indexOf("Opera") != -1) {
+    nomNav = "Opera";
+  } else if (ua.indexOf("Firefox") != -1) {
+    nomNav = "Mozilla Firefox";
+  } else if (ua.indexOf("Chrome") != -1) {
+    nomNav = "Google Chrome";
+  } else if (ua.indexOf("Safari") != -1) {
+    nomNav = "Safari (Apple)";
+  } else if (ua.indexOf("Netscape") != -1) {
+    nomNav = "Netscape";
+  }
+
+  var el = document.getElementById('navigateur-nom');
+  if (el) el.innerHTML = nomNav;
+
+  var avert = document.getElementById('navigateur-avertissement');
+  if (avert) {
+    if (!estIE) {
+      avert.innerHTML =
+        '<br><font face="Arial" size="1" color="#CC0000"><b>&#9888; ATTENTION !</b><br>' +
+        'Ce site est optimise pour<br><b>Internet Explorer</b>,<br>' +
+        'le navigateur moderne<br>et rapide de Microsoft.<br>' +
+        'Pour une navigation<br>optimale, utilisez IE !</font>';
+    }
+  }
+}
+
 // --- Execution immediate (script en fin de body, DOM pret) ---
 initHeader();      // doit preceder initBasDebit (cree les elements #bandeau-*)
 initFooter();      // doit preceder initBasDebit (cree l'element #pied-de-page)
@@ -245,3 +281,4 @@ initCliqueModem();
 initCompteur(2847);
 initNavRollover();
 initTicker();      // apres initHeader, les elements ticker existent
+initNavigateur();

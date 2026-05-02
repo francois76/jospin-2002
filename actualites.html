@@ -259,7 +259,8 @@
               <td align="center">
                 <font face="Arial" size="2" color="#666666">
                   <b>Vous utilisez :</b> <span id="navigateur-nom">votre navigateur actuel</span>
-                  <br><br>
+                  <div id="navigateur-avertissement"></div>
+                  <br>
                   Pour telecharger <b>Internet Explorer</b>, rendez-vous sur :
                   <br>
                   <font face="Courier New, monospace" color="#000080">
@@ -286,27 +287,6 @@
 </table>
 </center>
 
-<script type="text/javascript">
-<!--
-var nav = navigator.userAgent;
-var nomNav = "Navigateur inconnu";
-if (nav.indexOf("MSIE") != -1) {
-  nomNav = "Internet Explorer";
-} else if (nav.indexOf("Netscape") != -1) {
-  nomNav = "Netscape";
-} else if (nav.indexOf("Opera") != -1) {
-  nomNav = "Opera";
-} else if (nav.indexOf("Firefox") != -1) {
-  nomNav = "Mozilla Firefox";
-} else if (nav.indexOf("Chrome") != -1) {
-  nomNav = "Google Chrome";
-} else if (nav.indexOf("Safari") != -1) {
-  nomNav = "Safari (Apple)";
-}
-var el = document.getElementById('navigateur-nom');
-if (el) el.innerHTML = nomNav;
-//-->
-</script>
 <script>var ACTU_TEXTE = "&#9733; ACTUALITES : consultez les dernieres nouvelles de la campagne avec Internet Explorer ! &#9733;";</script>
 <script type="text/javascript" src="jospin.js"></script>
 
