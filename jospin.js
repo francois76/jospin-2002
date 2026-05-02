@@ -133,6 +133,35 @@ function initNavRollover() {
   }
 }
 
+// --- Footer commun : pied de page ---
+function initFooter() {
+  var placeholder = document.getElementById('footer-placeholder');
+  if (!placeholder) return;
+
+  placeholder.innerHTML =
+    '<table width="100%" border="0" cellpadding="6" cellspacing="0" bgcolor="#2C0818" id="pied-de-page">' +
+      '<tr><td align="center">' +
+        '<hr noshade size="2" color="#CC0000" width="780">' +
+        '<font face="Arial" size="2" color="#CCCCCC">' +
+          '<b>JOSPIN 2002</b> &mdash; Site Officiel de Campagne' +
+          ' &mdash; <a href="mentions-legales.html" style="color:#FFFF99;">Mentions legales</a>' +
+          ' &mdash; <a href="https://www.linkedin.com/in/fran%C3%A7ois-gognet-a61525152/" style="color:#FFFF99;">Contact</a>' +
+        '</font>' +
+        '<br>' +
+        '<font face="Arial" size="1" color="#888888">' +
+          '&copy; 2002 Parti Socialiste &mdash; Jospin2002 &mdash; Tous droits reserves' +
+          ' &mdash; <a href="mailto:webmaster@jospin2002.fr" style="color:#FFFF99;">webmaster@jospin2002.fr</a>' +
+          ' &mdash; Hebergement : <a href="http://www.wanadoo.fr" style="color:#FFFF99;">Wanadoo</a>' +
+        '</font>' +
+        '<br>' +
+        '<font face="Arial" size="1" color="#666666">' +
+          '<i>Site cree avec Microsoft FrontPage 2000 &mdash; Macromedia Flash 5 &mdash; Adobe Photoshop 6</i>' +
+        '</font>' +
+        '<br><br>' +
+      '</td></tr>' +
+    '</table>';
+}
+
 // --- Header commun : bandeau principal + ticker defilant ---
 function initHeader() {
   var placeholder = document.getElementById('header-placeholder');
@@ -210,6 +239,7 @@ function initTicker() {
 
 // --- Execution immediate (script en fin de body, DOM pret) ---
 initHeader();      // doit preceder initBasDebit (cree les elements #bandeau-*)
+initFooter();      // doit preceder initBasDebit (cree l'element #pied-de-page)
 initBasDebit();
 initCliqueModem();
 initCompteur(2847);
