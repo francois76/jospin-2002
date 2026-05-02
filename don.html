@@ -116,39 +116,52 @@
     background: radial-gradient(ellipse at 30% 30%, rgba(255,255,255,0.18) 0%, transparent 60%);
   }
 
-  /* Hologramme sur la face avant */
-  @keyframes hologramme {
-    0%   { opacity: 0.5; background-position: 0% 0%; }
-    50%  { opacity: 0.9; background-position: 100% 100%; }
-    100% { opacity: 0.5; background-position: 0% 0%; }
-  }
-
-  #carte-hologramme {
+  /* Logo PS sur le recto */
+  #carte-ps-strip {
     position: absolute;
-    bottom: 14px;
-    right: 16px;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: conic-gradient(
-      #FF0000, #FF7700, #FFFF00, #00FF00, #0000FF, #8B00FF, #FF0000
-    );
-    animation: hologramme 2s linear infinite;
-    box-shadow: 0 0 8px rgba(255,255,255,0.6);
+    right: 0; top: 0; bottom: 0;
+    width: 72px;
+    background: rgba(0,0,0,0.30);
+    border-left: 1px solid rgba(255,255,255,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #carte-ps-strip img {
+    width: 52px;
+    height: auto;
+    mix-blend-mode: multiply;
+    filter: brightness(1.1) contrast(1.1);
   }
 
   /* Face arriere */
   #carte-verso {
     transform: rotateY(180deg);
-    background: linear-gradient(135deg, #2C0818 0%, #4A0E28 50%, #6B1040 100%);
+    background: linear-gradient(135deg, #8B1A35 0%, #C43060 50%, #9B1848 100%);
+    overflow: hidden;
   }
 
-  #carte-verso::before {
-    content: "";
+  /* Portrait Jospin au dos */
+  #carte-verso-portrait {
     position: absolute;
-    top: 30px; left: 0; right: 0;
-    height: 40px;
-    background-color: #111111;
+    right: 0; top: 0;
+    height: 100%;
+    width: 62%;
+    object-fit: cover;
+    object-position: top center;
+    filter: sepia(0.4) hue-rotate(320deg) saturate(0.7) brightness(1.05) contrast(1.05);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+  }
+  #carte-verso-gradient {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(90deg,
+      rgba(139,26,53,1) 28%,
+      rgba(139,26,53,0.6) 52%,
+      rgba(139,26,53,0) 100%);
+    pointer-events: none;
+    z-index: 1;
   }
 
   /* Reflet brillant */
@@ -772,48 +785,43 @@
                     <!-- Face recto -->
                     <div class="carte-face" id="carte-recto">
                       <div class="carte-reflet"></div>
-                      <div style="padding:16px; color:#FFFFFF; position:relative; z-index:1;">
-                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:7px; color:#FFAAAA; letter-spacing:2px; text-transform:uppercase;">
-                          Parti Socialiste &mdash; Campagne Presidentielle 2002
+                      <!-- Texte principal -->
+                      <div style="position:absolute; left:0; top:0; right:72px; bottom:0; padding:14px 12px; display:flex; flex-direction:column; justify-content:space-between; z-index:1;">
+                        <div>
+                          <div style="font-family:Arial,Helvetica,sans-serif; font-size:7px; color:rgba(255,180,180,0.85); text-transform:uppercase; letter-spacing:2px;">Parti Socialiste</div>
+                          <div style="font-family:'Arial Black',Impact,Arial,sans-serif; font-size:24px; color:#FFFF00; margin-top:5px; line-height:1.1; text-shadow:2px 2px 6px rgba(0,0,0,0.55);">JOSPIN<br>2002</div>
+                          <div style="font-family:Arial,Helvetica,sans-serif; font-size:8px; color:#FFCCCC; margin-top:6px; text-transform:uppercase; letter-spacing:1.5px;">Carte de soutien</div>
                         </div>
-                        <div style="font-family:'Arial Black',Impact,Arial,sans-serif; font-size:18px; color:#FFFF00; margin-top:6px; text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
-                          JOSPIN 2002
-                        </div>
-                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#FFCCCC; margin-top:2px;">
-                          CARTE DE SOUTIEN OFFICIELLE
-                        </div>
-                        <div style="margin-top:14px; font-family:'Courier New',monospace; font-size:11px; color:#FFFFFF; letter-spacing:1px;">
-                          NOM : <span id="carte-nom-display" style="text-transform:uppercase; border-bottom:1px solid #FF8888;">VOTRE NOM ICI</span>
-                        </div>
-                        <div style="font-family:'Courier New',monospace; font-size:10px; color:#FFAAAA; margin-top:4px;">
-                          MEMBRE N&deg; <span id="carte-num-display">2002-XXXX</span>
-                        </div>
-                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:8px; color:#FFCCCC; margin-top:10px;">
-                          VALABLE POUR LE 21 AVRIL 2002
+                        <div style="border-top:1px solid rgba(255,255,255,0.25); padding-top:7px;">
+                          <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#FFFFFF; font-weight:bold; text-transform:uppercase;">
+                            <span id="carte-nom-display">VOTRE NOM ICI</span>
+                          </div>
+                          <div style="font-family:Arial,Helvetica,sans-serif; font-size:8px; color:#FFAAAA; margin-top:3px;">
+                            N&deg;&nbsp;<span id="carte-num-display">2002-XXXX</span> &mdash; 21 avril 2002
+                          </div>
                         </div>
                       </div>
-                      <div style="position:absolute; bottom:12px; right:18px; font-family:'Arial Black',Arial,sans-serif; font-size:22px; color:#FFFF00; text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
-                        &#9733;PS
+                      <!-- Logo PS -->
+                      <div id="carte-ps-strip">
+                        <img src="ps.png" alt="Parti Socialiste">
                       </div>
-                      <div id="carte-hologramme"></div>
                     </div>
                     <!-- Face verso -->
                     <div class="carte-face" id="carte-verso">
-                      <div style="position:absolute; top:30px; left:0; right:0; height:40px; background-color:#111111;"></div>
-                      <div style="padding:16px; padding-top:90px; color:#AAAACC; font-family:Arial,Helvetica,sans-serif; font-size:8px; position:relative; z-index:1;">
-                        <div style="background-color:#FFFFEE; padding:5px; color:#000000; font-family:'Courier New',monospace; font-size:9px; height:22px; overflow:hidden;">
-                          Signature autorisee : ________________________________________________
+                      <!-- Portrait Jospin -->
+                      <img id="carte-verso-portrait" src="jospin-image.png" alt="">
+                      <!-- Degrade de lisibilite -->
+                      <div id="carte-verso-gradient"></div>
+                      <!-- Texte -->
+                      <div style="position:absolute; left:14px; top:0; bottom:0; display:flex; flex-direction:column; justify-content:center; max-width:175px; z-index:2;">
+                        <div style="font-family:'Arial Black',Impact,Arial,sans-serif; font-size:11px; color:#FFFFFF; margin-bottom:8px; text-shadow:1px 1px 3px rgba(0,0,0,0.5);">JOSPIN 2002</div>
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:7.5px; color:rgba(255,220,230,0.9); line-height:1.7;">
+                          BP 2002 &mdash; 75007 Paris<br>
+                          jospin2002@wanadoo.fr
                         </div>
-                        <br>
-                        <div style="font-size:7px; color:#8888AA; line-height:1.4;">
-                          Cette carte est la propriete de l'Association Jospin 2002.<br>
-                          En cas de perte, contacter : jospin2002@wanadoo.fr<br>
-                          ou ecrire a : BP 2002 &mdash; 75007 Paris.
-                        </div>
-                        <br>
-                        <div style="font-size:8px; color:#AAAACC;">
-                          Association de financement agr&eacute;e<br>
-                          N&deg; prefectoral : 2002-IDF-047
+                        <div style="font-family:Arial,Helvetica,sans-serif; font-size:6.5px; color:rgba(255,200,215,0.7); margin-top:6px; line-height:1.5;">
+                          Agr&eacute;ment pr&eacute;f. n&deg;&nbsp;2002-IDF-047<br>
+                          &copy; Parti Socialiste 2002
                         </div>
                       </div>
                     </div>
