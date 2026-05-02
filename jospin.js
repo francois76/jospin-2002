@@ -143,7 +143,7 @@ function initHeader() {
     : '\u2605 JOSPIN PRESIDENT ! \u2605 La France est en ligne ! \u2605 Rejoignez la campagne sur le WEB \u2605';
 
   placeholder.innerHTML =
-    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">' +
+    '<table width="100%" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">' +
       '<tr>' +
         '<td width="140" bgcolor="#5C1030" align="center" valign="middle">' +
           '<img src="ps.png" alt="Parti Socialiste" style="max-height:80px;max-width:120px;" border="0"><br>' +
@@ -169,7 +169,7 @@ function initHeader() {
         '</td>' +
       '</tr>' +
     '</table>' +
-    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant" style="table-layout:fixed;">' +
+    '<table width="100%" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant" style="table-layout:fixed;">' +
       '<tr>' +
         '<td width="90" bgcolor="#CC0000" align="center">' +
           '<font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU&nbsp;:&nbsp;</b></font>' +
