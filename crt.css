@@ -45,6 +45,33 @@ body::before {
   background-size: 100% 2px, 3px 100%;
 }
 
+/* Balayage phosphore : bande lumineuse qui descend en continu,
+   simulant le faisceau d'electrons qui rafraichit le phosphore.
+   Injectee comme vrai element DOM via jospin.js (les pseudo-elements
+   sur html/body ne sont pas fiables pour les animations superposees). */
+@keyframes crt-sweep {
+  from { top: -40vh; }
+  to   { top: 110vh; }
+}
+
+#crt-sweep {
+  position: fixed;
+  left: 0;
+  top: -40vh;
+  width: 100%;
+  height: 40vh;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: soft-light;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  animation: crt-sweep 14s linear infinite;
+}
+
 /* Vignettage CRT : bords plus sombres, centre lumineux */
 body::after {
   content: '';

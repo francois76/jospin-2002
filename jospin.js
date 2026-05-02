@@ -3,6 +3,13 @@
 //  Compatible Netscape 6 / Internet Explorer 5.5
 // ============================================================
 
+// --- Effet CRT : bande de balayage phosphore ---
+(function() {
+  var div = document.createElement('div');
+  div.id = 'crt-sweep';
+  document.body.appendChild(div);
+})();
+
 // --- Simulation connexion bas debit 56k ---
 function initBasDebit() {
   function rand(base, spread) {
