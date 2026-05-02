@@ -169,12 +169,12 @@ function initHeader() {
         '</td>' +
       '</tr>' +
     '</table>' +
-    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant">' +
+    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant" style="table-layout:fixed;">' +
       '<tr>' +
         '<td width="90" bgcolor="#CC0000" align="center">' +
           '<font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU&nbsp;:&nbsp;</b></font>' +
         '</td>' +
-        '<td bgcolor="#FFFF00" id="ticker-zone" style="overflow:hidden;padding:3px 0;">' +
+        '<td width="710" bgcolor="#FFFF00" id="ticker-zone" style="overflow:hidden;padding:3px 0;">' +
           '<span id="ticker-texte" style="display:inline-block;white-space:nowrap;' +
           'font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#CC0000;font-weight:bold;">' +
           actuTexte +
