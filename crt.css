@@ -1,19 +1,25 @@
 /* ============================================================
    EFFET ECRAN CRT - Styles partages entre toutes les pages
    Inspire du CodePen de Lucas Bebber (XJRdrV)
-   Intensite reduite pour un rendu tres subtil.
+   Intensite reduite pour un rendu subtil.
    ============================================================ */
 
 /*
-   Overlay fixe superpose a l'ensemble de la page.
-   Deux gradients combines :
+   Deux pseudo-elements combines :
+
+   body::before — grille de phosphore
      1) Scanlines horizontales a 2px : bandes alternant transparent et
-        tres leger assombrissement, reproduisant les lignes de balayage
-        des tubes cathodiques.
+        leger assombrissement, reproduisant les lignes de balayage CRT.
+        Opacite legèrement remontee pour rendre le contraste perceptible.
      2) Triades RGB verticales a 3px : fines colonnes colorees imitant
-        les pastilles de phosphore (rouge / vert / bleu) des ecrans CRT.
-   Ensemble, ces deux motifs crees l'aspect ondulatoire caracteristique
-   sans aucune animation.
+        les pastilles de phosphore (rouge / vert / bleu).
+
+   body::after — vignettage
+     Gradient radial qui assombrit les bords de l'ecran. Sur un vrai
+     tube cathodique, le faisceau d'electrons perd en intensite vers les
+     extremites et le revetement de phosphore y est moins efficace :
+     le centre est toujours plus lumineux que les coins. C'est ce
+     degrade de luminosite qui donne l'aspect "ondulatoire" global.
 */
 
 body::before {
@@ -28,13 +34,30 @@ body::before {
   background:
     linear-gradient(
       rgba(18, 16, 16, 0) 50%,
-      rgba(0, 0, 0, 0.05) 50%
+      rgba(0, 0, 0, 0.09) 50%
     ),
     linear-gradient(
       90deg,
-      rgba(255, 0, 0, 0.022),
-      rgba(0, 255, 0, 0.010),
-      rgba(0, 0, 255, 0.022)
+      rgba(255, 0, 0, 0.025),
+      rgba(0, 255, 0, 0.012),
+      rgba(0, 0, 255, 0.025)
     );
   background-size: 100% 2px, 3px 100%;
+}
+
+/* Vignettage CRT : bords plus sombres, centre lumineux */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9997;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.22) 100%
+  );
 }
