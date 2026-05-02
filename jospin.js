@@ -196,13 +196,15 @@ function initFooter() {
         '<font face="Arial" size="2" color="#CCCCCC">' +
           '<b>JOSPIN 2002</b> &mdash; Site Officiel de Campagne' +
           ' &mdash; <a href="mentions-legales.html" style="color:#FFFF99;">Mentions legales</a>' +
+          ' &mdash; <a href="credits.html" style="color:#FFFF99;">Credits</a>' +
           ' &mdash; <a href="https://www.linkedin.com/in/fran%C3%A7ois-gognet-a61525152/" style="color:#FFFF99;">Contact</a>' +
         '</font>' +
         '<br>' +
         '<font face="Arial" size="1" color="#888888">' +
           '&copy; 2002 Parti Socialiste &mdash; Jospin2002 &mdash; Tous droits reserves' +
           ' &mdash; <a href="mailto:webmaster@jospin2002.fr" style="color:#FFFF99;">webmaster@jospin2002.fr</a>' +
-          ' &mdash; Hebergement : <a href="http://www.wanadoo.fr" style="color:#FFFF99;">Wanadoo</a>' +
+          '<br>' +
+          'Hebergement : <a href="http://www.wanadoo.fr" style="color:#FFFF99;">Wanadoo</a>' +
         '</font>' +
         '<br>' +
         '<font face="Arial" size="1" color="#666666">' +
