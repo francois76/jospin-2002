@@ -72,7 +72,7 @@
     height: 210px;
     perspective: 900px;
     margin: 0 auto;
-    cursor: pointer;
+    cursor: default;
   }
 
   #carte-flip {
@@ -84,9 +84,7 @@
     transition: animation-play-state 0.3s;
   }
 
-  #carte-scene:hover #carte-flip {
-    animation-play-state: paused;
-  }
+
 
   @keyframes carte-tourne {
     0%   { transform: rotateY(0deg)   rotateX(4deg); }
@@ -190,21 +188,244 @@
     background-color: #FFFFFF;
   }
 
-  .btn-imprimer {
-    background-color: #006600;
-    color: #FFFFFF;
+  /* ============================================================
+     WIDGET FLASH SIMULE
+     ============================================================ */
+  #flash-widget {
+    width: 618px;
+    background: #000000;
+    border: 3px solid #990099;
+    position: relative;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 13px;
+  }
+  #flash-titre-bar {
+    background: linear-gradient(180deg, #CC00CC 0%, #660066 100%);
+    padding: 4px 10px;
+    color: #FFFFFF;
+    font-size: 12px;
     font-weight: bold;
-    border: 2px outset #009900;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  #flash-titre-bar .flash-dot {
+    display:inline-block; width:10px; height:10px; border-radius:50%;
+  }
+  /* Etat : Flash non installe */
+  #flash-no-plugin {
+    background: #AAAAAA;
+    width: 618px;
+    min-height: 520px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px;
+    text-align: center;
+  }
+  #flash-no-plugin img.broken {
+    width: 50px; height: 50px;
+    border: 2px solid #555555;
+    background: #888888;
+    display: block;
+    margin: 0 auto 14px;
+  }
+  #flash-no-plugin p {
+    color: #222222;
+    font-size: 13px;
+    margin: 8px 0;
+  }
+  #flash-no-plugin a#lien-flash {
+    display: inline-block;
+    margin-top: 14px;
+    background: #003399;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
     padding: 6px 16px;
+    border: 2px outset #6699FF;
+    text-decoration: none;
     cursor: pointer;
   }
+  #flash-no-plugin a#lien-flash:hover {
+    background: #0044CC;
+  }
+  /* Etat : telechargement / installation */
+  #flash-installing {
+    display: none;
+    background: #C0C0C0;
+    width: 618px;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 30px;
+    text-align: center;
+  }
+  #flash-installing .install-title {
+    font-size: 15px; font-weight: bold; color: #000066; margin-bottom: 16px;
+  }
+  #flash-installing .install-msg {
+    font-size: 12px; color: #333333; margin: 6px 0;
+  }
+  #flash-progress-outer {
+    width: 320px; height: 20px;
+    background: #888888;
+    border: 2px inset #666666;
+    margin: 12px auto;
+    position: relative;
+    overflow: hidden;
+  }
+  #flash-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(180deg, #3399FF 0%, #0033CC 50%, #3399FF 100%);
+    transition: width 0.3s linear;
+  }
+  #flash-progress-label {
+    font-size: 11px; color: #000000; margin-top: 4px;
+  }
+  #flash-reload-btn {
+    display: none;
+    margin-top: 20px;
+    background: #006600;
+    color: #FFFF00;
+    font-size: 13px;
+    font-weight: bold;
+    border: 3px outset #00AA00;
+    padding: 8px 24px;
+    cursor: pointer;
+  }
+  #flash-reload-btn:hover { background: #009900; }
+  #flash-reload-btn:active { border-style: inset; }
+  /* Etat : splash macromedia avant le contenu */
+  #flash-splash {
+    display: none;
+    background: #000000;
+    width: 618px;
+    min-height: 520px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 20px;
+    text-align: center;
+  }
+  #flash-splash img {
+    max-width: 340px;
+    display: block;
+    margin: 0 auto 20px;
+  }
+  #splash-progress-outer {
+    width: 320px; height: 14px;
+    background: #333333;
+    border: 1px inset #111111;
+    margin: 8px auto;
+    overflow: hidden;
+  }
+  #splash-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #FF0000, #FF7700, #FFFF00);
+    transition: width 0.15s linear;
+  }
+  #splash-progress-label {
+    font-size: 10px; color: #AAAAAA; margin-top: 4px;
+  }
+  /* Etat : contenu Flash (carte + formulaire) */
+  #flash-contenu {
+    display: none;
+    background: #2C0818;
+    width: 618px;
+    box-sizing: border-box;
+    padding: 16px;
+  }
+  /* Style cartoon du formulaire Flash */
+  #flash-form-zone {
+    background: linear-gradient(180deg, #FFFBE6 0%, #FFF0A0 100%);
+    border: 4px solid #FF6600;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 14px;
+    box-shadow: 4px 4px 0px #CC3300, inset 0 1px 0 rgba(255,255,255,0.8);
+  }
+  #flash-form-zone .cartoon-title {
+    font-family: 'Arial Black', Impact, Arial, sans-serif;
+    font-size: 15px;
+    color: #CC0000;
+    text-shadow: 2px 2px 0px #FF9900;
+    text-align: center;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+  }
+  #flash-form-zone label {
+    font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    color: #440044;
+  }
+  #flash-form-zone input[type=text] {
+    font-family: 'Comic Sans MS', Arial, sans-serif;
+    font-size: 12px;
+    border: 3px solid #FF6600;
+    border-radius: 8px;
+    padding: 3px 7px;
+    background: #FFFBE6;
+    color: #220022;
+    box-shadow: 2px 2px 0px #CC3300;
+    outline: none;
+  }
+  #flash-form-zone input[type=text]:focus {
+    border-color: #0066FF;
+    box-shadow: 2px 2px 0px #0033AA;
+  }
+  #flash-form-zone input[type=radio] {
+    accent-color: #CC0000;
+    transform: scale(1.3);
+    margin-right: 4px;
+  }
+  #flash-form-zone .cartoon-section {
+    background: rgba(255,102,0,0.10);
+    border: 2px dashed #FF6600;
+    border-radius: 8px;
+    padding: 8px 10px;
+    margin: 10px 0;
+  }
+  @keyframes btn-print-pulse {
+    0%,100% { transform: scale(1);   box-shadow: 0 0 0px #FF6600; }
+    50%      { transform: scale(1.06); box-shadow: 0 0 14px #FF9900; }
+  }
+  .btn-imprimer {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: linear-gradient(180deg, #00DD00 0%, #006600 50%, #009900 100%);
+    color: #FFFFFF;
+    font-family: 'Arial Black', Impact, Arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    border: 4px outset #00FF00;
+    border-radius: 10px;
+    padding: 10px 26px;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px #003300;
+    box-shadow: 3px 3px 0px #003300;
+    animation: btn-print-pulse 1.4s ease-in-out infinite;
+    letter-spacing: 1px;
+  }
   .btn-imprimer:hover {
-    background-color: #009900;
+    background: linear-gradient(180deg, #00FF00 0%, #009900 50%, #00CC00 100%);
+    border-color: #FFFF00;
+    color: #FFFF00;
   }
   .btn-imprimer:active {
     border-style: inset;
+    transform: scale(0.97);
+  }
+  .btn-imprimer svg {
+    flex-shrink: 0;
   }
 
   @keyframes badge-pulse {
@@ -416,56 +637,7 @@
 <table width="800" border="0" cellpadding="0" cellspacing="0">
   <tr><td>
 
-    <!-- BANDEAU -->
-    <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">
-      <tr>
-        <td width="140" bgcolor="#5C1030" align="center" valign="middle">
-          <br>
-          <font face="Arial Black, Arial" size="6" color="#FFFF00"><b>&#9733; PS &#9733;</b></font>
-          <br>
-          <font face="Arial" size="1" color="#FFAACC">PARTI SOCIALISTE</font>
-          <br><br>
-        </td>
-        <td width="520" align="center" valign="middle" bgcolor="#CC0000">
-          <br>
-          <font face="Arial Black, Impact, Arial" size="7" color="#FFFFFF"><b>LIONEL JOSPIN</b></font>
-          <br>
-          <font face="Arial" size="3" color="#FFFF00"><b><i>Candidat a la Presidence de la Republique</i></b></font>
-          <br>
-          <font face="Arial" size="2" color="#FFCCCC">Election Presidentielle Francaise &mdash; Avril 2002</font>
-          <br><br>
-        </td>
-        <td width="140" bgcolor="#5C1030" align="center" valign="middle">
-          <br>
-          <span class="etoile-clignote">&#9733;</span>
-          <span class="etoile-clignote" style="animation-delay:0.3s">&#9733;</span>
-          <span class="etoile-clignote" style="animation-delay:0.6s">&#9733;</span>
-          <br>
-          <font face="Arial" size="1" color="#FFAACC">VOTEZ JOSPIN</font>
-          <br>
-          <span class="etoile-clignote" style="animation-delay:0.9s">&#9733;</span>
-          <span class="etoile-clignote" style="animation-delay:0.15s">&#9733;</span>
-          <span class="etoile-clignote" style="animation-delay:0.45s">&#9733;</span>
-          <br><br>
-        </td>
-      </tr>
-    </table>
-
-    <!-- MARQUEE -->
-    <table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant">
-      <tr>
-        <td width="90" bgcolor="#CC0000" align="center">
-          <font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU :&nbsp;</b></font>
-        </td>
-        <td bgcolor="#FFFF00">
-          <marquee behavior="scroll" direction="left" scrollamount="4">
-            <font face="Arial" size="2" color="#CC0000">
-              <b>&#9733; SOUTENEZ JOSPIN ! &#9733; Faites un don a la campagne &#9733; Remplissez et imprimez le bulletin ci-dessous &#9733; Votre carte de membre vous sera envoyee par La Poste &#9733;</b>
-            </font>
-          </marquee>
-        </td>
-      </tr>
-    </table>
+    <div id="header-placeholder"></div>
 
     <!-- CONTENU : 2 COLONNES -->
     <table width="800" border="0" cellpadding="6" cellspacing="0" bgcolor="#FFFFFF" id="contenu-principal">
@@ -550,25 +722,55 @@
 
           <br>
 
-          <!-- CARTE 3D ANIMEE (remplacement Flash) -->
-          <table width="618" border="1" cellpadding="10" cellspacing="0" bordercolor="#990099">
-            <tr bgcolor="#990099">
-              <td>
-                <font face="Arial" size="2" color="#FFFFFF"><b>&#9733; VOTRE CARTE DE MEMBRE OFFICIELLE &mdash; APERCU 3D &#9733;</b></font>
-              </td>
-            </tr>
-            <tr>
-              <td bgcolor="#2C0818" align="center">
+          <!-- WIDGET FLASH SIMULE : carte 3D + formulaire -->
+          <div id="flash-widget">
+            <!-- Barre de titre style lecteur Flash -->
+            <div id="flash-titre-bar">
+              <span class="flash-dot" style="background:#FF5F57;"></span>
+              <span class="flash-dot" style="background:#FFBD2E;"></span>
+              <span class="flash-dot" style="background:#28CA41;"></span>
+              &nbsp;<img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23CC0000'/%3E%3Cpolygon points='8,6 26,16 8,26' fill='%23FFFFFF'/%3E%3C/svg%3E" width="14" height="14" style="vertical-align:middle;"> JOSPIN2002_DON_v3.swf &mdash; Macromedia Flash Player 6
+            </div>
 
-                <br>
-                <!-- Scene 3D -->
+            <!-- ETAT 1 : Flash non installe -->
+            <div id="flash-no-plugin">
+              <img class="broken" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScAAAAAElFTkSuQmCC" alt="">
+              <p style="font-size:16px; font-weight:bold; color:#330033;">Ce contenu n&eacute;cessite Macromedia Flash Player&trade;</p>
+              <p>Pour voir cette page correctement, vous devez installer le plugin<br><b>Macromedia Flash Player 6</b> (gratuit).</p>
+              <p style="font-size:11px; color:#555555;">Sans Flash Player, vous ne pourrez pas voir l'aper&ccedil;u de votre carte de membre<br>ni remplir le formulaire de don interactif.</p>
+              <a id="lien-flash" href="javascript:void(0)" onclick="lancerInstallFlash()">&#9658; Obtenir Macromedia Flash Player (gratuit)</a>
+              <p style="font-size:10px; color:#777777; margin-top:18px;"><i>Plugin requis : flash.ocx v6.0.47.0 &mdash; Taille : 1,2 Mo</i></p>
+            </div>
+
+            <!-- ETAT 2 : Telechargement / installation -->
+            <div id="flash-installing">
+              <div class="install-title">Macromedia Flash Player 6 &mdash; Installation</div>
+              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' rx='8' fill='%23CC0000'/%3E%3Cpolygon points='20,14 64,40 20,66' fill='%23FFFFFF'/%3E%3C/svg%3E" width="80" height="80" style="margin-bottom:14px;">
+              <div class="install-msg" id="flash-install-step">Connexion au serveur Macromedia...</div>
+              <div id="flash-progress-outer"><div id="flash-progress-bar"></div></div>
+              <div id="flash-progress-label">0%</div>
+              <div class="install-msg" style="font-size:10px; color:#666666; margin-top:12px;">Ne pas fermer cette fen&ecirc;tre pendant l'installation.<br>Macromedia Flash Player est un logiciel gratuit.</div>
+              <button id="flash-reload-btn" onclick="rechargerPage()">&#8635; Recharger la page pour activer Flash</button>
+            </div>
+
+            <!-- ETAT 3 : Splash Macromedia -->
+            <div id="flash-splash">
+              <img src="macromedia.webp" alt="Macromedia Flash" style="max-width:340px;">
+              <div id="splash-progress-outer"><div id="splash-progress-bar"></div></div>
+              <div id="splash-progress-label">Chargement... 0%</div>
+            </div>
+
+            <!-- ETAT 4 : Contenu Flash (carte + formulaire) -->
+            <div id="flash-contenu">
+
+              <!-- Scene 3D -->
+              <div style="text-align:center; padding-top:10px;">
+                <div style="font-family:Arial,Helvetica,sans-serif; font-size:9px; color:#CC88CC; letter-spacing:2px; margin-bottom:6px;">&#9733; VOTRE CARTE DE MEMBRE OFFICIELLE &mdash; APERCU 3D &#9733;</div>
                 <div id="carte-scene">
                   <div id="carte-flip">
-
                     <!-- Face recto -->
                     <div class="carte-face" id="carte-recto">
                       <div class="carte-reflet"></div>
-                      <!-- Contenu recto -->
                       <div style="padding:16px; color:#FFFFFF; position:relative; z-index:1;">
                         <div style="font-family:Arial,Helvetica,sans-serif; font-size:7px; color:#FFAAAA; letter-spacing:2px; text-transform:uppercase;">
                           Parti Socialiste &mdash; Campagne Presidentielle 2002
@@ -579,8 +781,6 @@
                         <div style="font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#FFCCCC; margin-top:2px;">
                           CARTE DE SOUTIEN OFFICIELLE
                         </div>
-
-                        <!-- Nom du membre -->
                         <div style="margin-top:14px; font-family:'Courier New',monospace; font-size:11px; color:#FFFFFF; letter-spacing:1px;">
                           NOM : <span id="carte-nom-display" style="text-transform:uppercase; border-bottom:1px solid #FF8888;">VOTRE NOM ICI</span>
                         </div>
@@ -591,19 +791,14 @@
                           VALABLE POUR LE 21 AVRIL 2002
                         </div>
                       </div>
-                      <!-- Logo PS en bas a droite -->
                       <div style="position:absolute; bottom:12px; right:18px; font-family:'Arial Black',Arial,sans-serif; font-size:22px; color:#FFFF00; text-shadow:2px 2px 4px rgba(0,0,0,0.5);">
                         &#9733;PS
                       </div>
-                      <!-- Hologramme -->
                       <div id="carte-hologramme"></div>
                     </div>
-
                     <!-- Face verso -->
                     <div class="carte-face" id="carte-verso">
-                      <!-- Bande magnetique (simulee) -->
                       <div style="position:absolute; top:30px; left:0; right:0; height:40px; background-color:#111111;"></div>
-                      <!-- Contenu verso -->
                       <div style="padding:16px; padding-top:90px; color:#AAAACC; font-family:Arial,Helvetica,sans-serif; font-size:8px; position:relative; z-index:1;">
                         <div style="background-color:#FFFFEE; padding:5px; color:#000000; font-family:'Courier New',monospace; font-size:9px; height:22px; overflow:hidden;">
                           Signature autorisee : ________________________________________________
@@ -621,133 +816,81 @@
                         </div>
                       </div>
                     </div>
-
                   </div>
                 </div>
-                <br>
-                <font face="Arial" size="1" color="#8888AA">
-                  <i>(Passez la souris sur la carte pour l'arreter &mdash; Animation realisee sans Flash)</i>
-                </font>
-                <br><br>
-              </td>
-            </tr>
-          </table>
+                <div style="font-size:9px; color:#885588; margin-top:6px; font-style:italic;">(Animation Macromedia Flash 6 &mdash; interactif)</div>
+              </div>
 
-          <br>
+              <!-- Formulaire cartoon Flash -->
+              <div id="flash-form-zone">
+                <div class="cartoon-title">&#9654; FAITES VOTRE DON &mdash; IMPRIMEZ LE BULLETIN !</div>
+                <hr class="hr-rainbow">
 
-          <!-- FORMULAIRE DE DON -->
-          <table width="618" border="1" cellpadding="6" cellspacing="0" bordercolor="#006600">
-            <tr bgcolor="#006600">
-              <td>
-                <font face="Arial" size="2" color="#FFFFFF"><b>&#9658; REMPLISSEZ LE FORMULAIRE &mdash; PUIS IMPRIMEZ !</b></font>
-              </td>
-            </tr>
-            <tr>
-              <td bgcolor="#F5FFF5">
-                <font face="Arial" size="2">
+                <table border="0" cellpadding="5" cellspacing="2" width="100%">
+                  <tr>
+                    <td><label for="f-nom">Nom :</label></td>
+                    <td><input type="text" id="f-nom" size="18" onkeyup="majCarte()"></td>
+                    <td><label for="f-prenom">Pr&eacute;nom :</label></td>
+                    <td><input type="text" id="f-prenom" size="16"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="f-adresse">Adresse :</label></td>
+                    <td colspan="3"><input type="text" id="f-adresse" size="44" style="width:98%;"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="f-cp">Code postal :</label></td>
+                    <td><input type="text" id="f-cp" size="7"></td>
+                    <td><label for="f-ville">Ville :</label></td>
+                    <td><input type="text" id="f-ville" size="16"></td>
+                  </tr>
+                  <tr>
+                    <td><label for="f-email">E-mail :</label></td>
+                    <td colspan="3"><input type="text" id="f-email" size="32" style="width:98%;"></td>
+                  </tr>
+                </table>
 
-                  <table border="0" cellpadding="4" cellspacing="2" width="100%">
-
+                <div class="cartoon-section">
+                  <label style="font-size:13px;">&#9733; Montant du don :</label><br><br>
+                  <table border="0" cellpadding="3" cellspacing="6">
                     <tr>
-                      <td width="120"><font face="Arial" size="2">Nom :</font></td>
-                      <td><input type="text" id="f-nom" size="20"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:180px;"
-                        onkeyup="majCarte()">
-                      </td>
-                      <td width="80"><font face="Arial" size="2">Prenom :</font></td>
-                      <td><input type="text" id="f-prenom" size="20"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:140px;">
-                      </td>
+                      <td><input type="radio" name="montant" id="m10" value="10"><label for="m10"><b>10 F</b> (1,52&euro;) &mdash; Sympathisant</label></td>
+                      <td>&nbsp;&nbsp;</td>
+                      <td><input type="radio" name="montant" id="m50" value="50"><label for="m50"><b>50 F</b> (7,62&euro;) &mdash; Soutien actif</label></td>
                     </tr>
-
                     <tr>
-                      <td><font face="Arial" size="2">Adresse :</font></td>
-                      <td colspan="3"><input type="text" id="f-adresse" size="48"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:100%;">
-                      </td>
+                      <td><input type="radio" name="montant" id="m100" value="100"><label for="m100"><b>100 F</b> (15,24&euro;) &mdash; Soutien confirm&eacute;</label></td>
+                      <td></td>
+                      <td><input type="radio" name="montant" id="m500" value="500"><label for="m500"><b>500 F</b> (76,22&euro;) &mdash; Grand donateur</label></td>
                     </tr>
-
                     <tr>
-                      <td><font face="Arial" size="2">Code postal :</font></td>
-                      <td><input type="text" id="f-cp" size="8"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;">
-                      </td>
-                      <td><font face="Arial" size="2">Ville :</font></td>
-                      <td><input type="text" id="f-ville" size="20"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:140px;">
+                      <td colspan="3"><input type="radio" name="montant" id="mautre" value="autre"><label for="mautre">Autre :</label>
+                        <input type="text" id="f-autre-montant" size="7"> <label>Francs</label>
                       </td>
                     </tr>
-
-                    <tr>
-                      <td><font face="Arial" size="2">E-mail :</font></td>
-                      <td colspan="3"><input type="text" id="f-email" size="30"
-                        style="font-family:Arial;font-size:11px;border:1px solid #006600;width:100%;">
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="4"><hr class="hr-rainbow"></td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="4">
-                        <font face="Arial" size="2"><b>Montant du don :</b></font><br><br>
-                        <table border="0" cellpadding="2" cellspacing="6">
-                          <tr>
-                            <td><input type="radio" name="montant" id="m10" value="10">
-                              <label for="m10"><font face="Arial" size="2"><b>10 F</b> (1,52 &euro;) &mdash; Sympathisant</font></label>
-                            </td>
-                            <td>&nbsp;&nbsp;&nbsp;</td>
-                            <td><input type="radio" name="montant" id="m50" value="50">
-                              <label for="m50"><font face="Arial" size="2"><b>50 F</b> (7,62 &euro;) &mdash; Soutien actif</font></label>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td><input type="radio" name="montant" id="m100" value="100">
-                              <label for="m100"><font face="Arial" size="2"><b>100 F</b> (15,24 &euro;) &mdash; Soutien confirme</font></label>
-                            </td>
-                            <td></td>
-                            <td><input type="radio" name="montant" id="m500" value="500">
-                              <label for="m500"><font face="Arial" size="2"><b>500 F</b> (76,22 &euro;) &mdash; Grand donateur</font></label>
-                            </td>
-                          </tr>
-                          <tr>
-                            <td colspan="3"><input type="radio" name="montant" id="mautre" value="autre">
-                              <label for="mautre"><font face="Arial" size="2">Autre montant :</font></label>
-                              <input type="text" id="f-autre-montant" size="8"
-                                style="font-family:Arial;font-size:11px;border:1px solid #006600;">
-                              <font face="Arial" size="2">Francs</font>
-                            </td>
-                          </tr>
-                        </table>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="4"><hr class="hr-rainbow"></td>
-                    </tr>
-
-                    <tr>
-                      <td colspan="4" align="center">
-                        <br>
-                        <button class="btn-imprimer" onclick="imprimerFormulaire()">
-                          &#9658; IMPRIMER LE BULLETIN DE DON ET MA CARTE DE MEMBRE
-                        </button>
-                        <br><br>
-                        <font face="Arial" size="1" color="#666666">
-                          <i>Imprimez ce formulaire, signez-le, joignez votre cheque et envoyez le tout a :<br>
-                          <b>Association Jospin 2002 &mdash; BP 2002 &mdash; 75007 Paris</b></i>
-                        </font>
-                        <br>
-                      </td>
-                    </tr>
-
                   </table>
+                </div>
 
-                </font>
-              </td>
-            </tr>
-          </table>
+                <hr class="hr-rainbow">
+                <div style="text-align:center; padding:10px 0 6px;">
+                  <button class="btn-imprimer" onclick="imprimerFormulaire()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect x="4" y="8" width="16" height="10" rx="2" fill="white" opacity="0.9"/>
+                      <rect x="7" y="14" width="10" height="6" rx="1" fill="#006600"/>
+                      <rect x="7" y="3" width="10" height="7" rx="1" fill="white" opacity="0.9"/>
+                      <circle cx="17" cy="11" r="1.2" fill="#006600"/>
+                    </svg>
+                    IMPRIMER LE BULLETIN DE DON + CARTE
+                  </button>
+                  <br><br>
+                  <span style="font-family:Arial,Helvetica,sans-serif; font-size:10px; color:#664400;">
+                    <i>Imprimez, signez, joignez votre ch&egrave;que et envoyez &agrave; :<br>
+                    <b>Association Jospin 2002 &mdash; BP 2002 &mdash; 75007 Paris</b></i>
+                  </span>
+                </div>
+              </div>
+
+            </div><!-- fin flash-contenu -->
+          </div><!-- fin flash-widget -->
 
           <br>
 
@@ -798,8 +941,102 @@
 <script type="text/javascript">
 <!--
 
-// --- Mise a jour live du nom sur la carte 3D ---
+// ============================================================
+//  SIMULATION MACROMEDIA FLASH
+// ============================================================
 var numMembre = Math.floor(Math.random() * 8999) + 1000;
+
+function lancerInstallFlash() {
+  document.getElementById('flash-no-plugin').style.display = 'none';
+  var zone = document.getElementById('flash-installing');
+  zone.style.display = 'flex';
+
+  var steps = [
+    [400,  'Connexion au serveur Macromedia...'],
+    [1200, 'T\u00e9l\u00e9chargement de flash.ocx (1,2 Mo)...'],
+    [3200, 'V\u00e9rification de l\'int\u00e9grit\u00e9 du fichier...'],
+    [4200, 'Installation en cours...'],
+    [5400, 'Enregistrement du plugin dans Windows...'],
+    [6600, 'Mise \u00e0 jour du registre syst\u00e8me...'],
+    [7600, 'Installation termin\u00e9e !']
+  ];
+
+  var bar = document.getElementById('flash-progress-bar');
+  var label = document.getElementById('flash-progress-label');
+  var stepEl = document.getElementById('flash-install-step');
+  var reloadBtn = document.getElementById('flash-reload-btn');
+
+  // Progression fluide
+  var startTime = Date.now();
+  var totalDuration = 8000;
+  function animBar() {
+    var elapsed = Date.now() - startTime;
+    var pct = Math.min(100, Math.round((elapsed / totalDuration) * 100));
+    bar.style.width = pct + '%';
+    label.innerHTML = pct + '%';
+    if (pct < 100) {
+      setTimeout(animBar, 80);
+    } else {
+      label.innerHTML = '100% &mdash; Installation r\u00e9ussie !';
+      reloadBtn.style.display = 'inline-block';
+    }
+  }
+  animBar();
+
+  for (var i = 0; i < steps.length; i++) {
+    (function(t, msg) {
+      setTimeout(function() { stepEl.innerHTML = msg; }, t);
+    })(steps[i][0], steps[i][1]);
+  }
+}
+
+function rechargerPage() {
+  localStorage.setItem('flash_installed', '1');
+  window.location.reload();
+}
+
+function lancerSplash(callback) {
+  var splashEl = document.getElementById('flash-splash');
+  splashEl.style.display = 'flex';
+  var bar = document.getElementById('splash-progress-bar');
+  var label = document.getElementById('splash-progress-label');
+  var start = Date.now();
+  var dur = 2800;
+  function anim() {
+    var elapsed = Date.now() - start;
+    var pct = Math.min(100, Math.round((elapsed / dur) * 100));
+    bar.style.width = pct + '%';
+    label.innerHTML = 'Chargement... ' + pct + '%';
+    if (pct < 100) {
+      setTimeout(anim, 60);
+    } else {
+      setTimeout(function() {
+        splashEl.style.display = 'none';
+        callback();
+      }, 400);
+    }
+  }
+  anim();
+}
+
+function afficherContenuFlash() {
+  document.getElementById('flash-contenu').style.display = 'block';
+}
+
+// Initialisation au chargement
+window.addEventListener('load', function() {
+  var flashInstalle = localStorage.getItem('flash_installed');
+  if (!flashInstalle) {
+    // Premiere visite : montrer le bloc "plugin manquant"
+    document.getElementById('flash-no-plugin').style.display = 'flex';
+  } else {
+    // Flash "installe" : splash puis contenu
+    document.getElementById('flash-no-plugin').style.display = 'none';
+    lancerSplash(afficherContenuFlash);
+  }
+});
+
+// --- Mise a jour live du nom sur la carte 3D ---
 
 function majCarte() {
   var nom = document.getElementById('f-nom').value;
@@ -864,6 +1101,7 @@ function imprimerFormulaire() {
 
 //-->
 </script>
+<script>var ACTU_TEXTE = "&#9733; SOUTENEZ JOSPIN ! &#9733; Faites un don a la campagne &#9733; Remplissez et imprimez le bulletin ci-dessous &#9733; Votre carte de membre vous sera envoyee par La Poste &#9733;";</script>
 <script type="text/javascript" src="jospin.js"></script>
 
 </body>

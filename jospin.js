@@ -133,8 +133,85 @@ function initNavRollover() {
   }
 }
 
+// --- Header commun : bandeau principal + ticker defilant ---
+function initHeader() {
+  var placeholder = document.getElementById('header-placeholder');
+  if (!placeholder) return;
+
+  var actuTexte = (typeof ACTU_TEXTE !== 'undefined' && ACTU_TEXTE)
+    ? ACTU_TEXTE
+    : '\u2605 JOSPIN PRESIDENT ! \u2605 La France est en ligne ! \u2605 Rejoignez la campagne sur le WEB \u2605';
+
+  placeholder.innerHTML =
+    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-principal">' +
+      '<tr>' +
+        '<td width="140" bgcolor="#5C1030" align="center" valign="middle">' +
+          '<img src="ps.png" alt="Parti Socialiste" style="max-height:80px;max-width:120px;" border="0"><br>' +
+          '<font face="Arial" size="1" color="#FFAACC">PARTI SOCIALISTE</font><br><br>' +
+        '</td>' +
+        '<td width="520" align="center" valign="middle" bgcolor="#CC0000">' +
+          '<br>' +
+          '<font face="Arial Black,Impact,Arial" size="7" color="#FFFFFF"><b>LIONEL JOSPIN</b></font><br>' +
+          '<font face="Arial" size="3" color="#FFFF00"><b><i>Candidat a la Presidence de la Republique</i></b></font><br>' +
+          '<font face="Arial" size="2" color="#FFCCCC">Election Presidentielle Fran\u00e7aise \u2014 Avril 2002</font>' +
+          '<br><br>' +
+        '</td>' +
+        '<td width="140" bgcolor="#5C1030" align="center" valign="middle">' +
+          '<br>' +
+          '<span class="etoile-clignote">\u2605</span>' +
+          '<span class="etoile-clignote" style="animation-delay:0.3s">\u2605</span>' +
+          '<span class="etoile-clignote" style="animation-delay:0.6s">\u2605</span><br>' +
+          '<font face="Arial" size="1" color="#FFAACC">VOTEZ JOSPIN</font><br>' +
+          '<span class="etoile-clignote" style="animation-delay:0.9s">\u2605</span>' +
+          '<span class="etoile-clignote" style="animation-delay:0.15s">\u2605</span>' +
+          '<span class="etoile-clignote" style="animation-delay:0.45s">\u2605</span>' +
+          '<br><br>' +
+        '</td>' +
+      '</tr>' +
+    '</table>' +
+    '<table width="800" border="0" cellpadding="0" cellspacing="0" id="bandeau-defilant">' +
+      '<tr>' +
+        '<td width="90" bgcolor="#CC0000" align="center">' +
+          '<font face="Arial" size="2" color="#FFFFFF"><b>&nbsp;ACTU&nbsp;:&nbsp;</b></font>' +
+        '</td>' +
+        '<td bgcolor="#FFFF00" id="ticker-zone" style="overflow:hidden;padding:3px 0;">' +
+          '<span id="ticker-texte" style="display:inline-block;white-space:nowrap;' +
+          'font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#CC0000;font-weight:bold;">' +
+          actuTexte +
+          '</span>' +
+        '</td>' +
+      '</tr>' +
+    '</table>';
+}
+
+// --- Animation du ticker defilant (remplace marquee) ---
+function initTicker() {
+  var zone  = document.getElementById('ticker-zone');
+  var texte = document.getElementById('ticker-texte');
+  if (!zone || !texte) return;
+
+  // 710 = 800 (largeur site) - 90 (etiquette ACTU) ; fallback si element cache
+  var ZONE_FALLBACK = 710;
+  var pos   = ZONE_FALLBACK;
+  var speed = 1.5;                // pixels par frame (~90px/s a 60fps)
+
+  function tick() {
+    pos -= speed;
+    var zoneW  = zone.offsetWidth  || ZONE_FALLBACK;
+    var texteW = texte.offsetWidth || texte.scrollWidth || 400;
+    if (pos < -texteW) {
+      pos = zoneW;                // recommence depuis la droite
+    }
+    texte.style.transform = 'translateX(' + pos + 'px)';
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
 // --- Execution immediate (script en fin de body, DOM pret) ---
+initHeader();      // doit preceder initBasDebit (cree les elements #bandeau-*)
 initBasDebit();
 initCliqueModem();
 initCompteur(2847);
 initNavRollover();
+initTicker();      // apres initHeader, les elements ticker existent
