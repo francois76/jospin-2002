@@ -101,3 +101,12 @@ body::after {
     rgba(0, 0, 0, 0.22) 100%
   );
 }
+
+/* Supprimer tous les effets CRT a l'impression pour ne pas parasiter
+   le rendu imprimable (scanlines, vignettage, bande de balayage). */
+@media print {
+  body::before,
+  body::after { display: none !important; }
+  #crt-sweep  { display: none !important; }
+  body        { text-shadow: none !important; }
+}

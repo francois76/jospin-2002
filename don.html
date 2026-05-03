@@ -186,10 +186,12 @@
      SECTION IMPRESSION
      ============================================================ */
   @media print {
-    /* Masquer tout sauf le formulaire imprimable */
-    body > * { display: none !important; }
-    #zone-impression { display: block !important; }
-    #zone-impression { position: static !important; }
+    /* Masquer tout sauf le formulaire imprimable.
+       On utilise :not() pour eviter tout conflit de cascade avec !important
+       (certains navigateurs ne respectent pas correctement la specificite
+       quand deux declarations !important s'opposent sur le meme element). */
+    body > *:not(#zone-impression) { display: none !important; }
+    #zone-impression { display: block !important; position: static !important; }
     /* Forcer une seule page */
     @page { size: A4 portrait; margin: 1cm 1.5cm; }
     #formulaire-don { padding: 8px; font-size: 11pt; }
@@ -197,8 +199,8 @@
     #formulaire-don br { display: none; }
   }
 
-  #zone-impression {
-    display: none;
+  @media screen {
+    #zone-impression { display: none; }
   }
 
   /* Apercu impression */
