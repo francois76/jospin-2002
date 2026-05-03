@@ -195,7 +195,6 @@ function initFooter() {
         '<hr noshade size="2" color="#CC0000" width="780">' +
         '<font face="Arial" size="2" color="#CCCCCC">' +
           '<b>JOSPIN 2002</b> &mdash; Site Officiel de Campagne' +
-          ' &mdash; <a href="mentions-legales.html" style="color:#FFFF99;">Mentions legales</a>' +
           ' &mdash; <a href="credits.html" style="color:#FFFF99;">Credits</a>' +
           ' &mdash; <a href="https://www.linkedin.com/in/fran%C3%A7ois-gognet-a61525152/" style="color:#FFFF99;">Contact</a>' +
         '</font>' +
