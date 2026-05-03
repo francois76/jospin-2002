@@ -325,6 +325,78 @@ function initNavigateur() {
   }
 }
 
+// --- Effet CRT : aberration chromatique (phosphor bleed) ---
+// Sur un vrai tube cathodique les trois faisceaux RGB ne convergent jamais
+// parfaitement : le rouge « bave » vers la gauche, le bleu vers la droite,
+// le vert reste au centre. Le résultat est visible sur tout element clair
+// (texte blanc, bordures vives, zones lumineuses) sous forme de franges
+// colorees aux contours. Ici on separe les canaux R/G/B via feColorMatrix,
+// on les decale lateralement, on les floute legerement pour imiter la
+// diffusion du phosphore, puis on les recompose en screen-blend.
+// Le filtre est applique sur <center> (et non sur body) afin de ne pas
+// perturber les position:fixed des overlays CRT (scanlines, vignette, sweep).
+(function() {
+  var NS = 'http://www.w3.org/2000/svg';
+
+  function mkEl(tag, attrs) {
+    var el = document.createElementNS(NS, tag);
+    for (var k in attrs) el.setAttribute(k, attrs[k]);
+    return el;
+  }
+
+  var svg = mkEl('svg', {
+    style: 'position:absolute;width:0;height:0;overflow:hidden',
+    'aria-hidden': 'true'
+  });
+
+  var defs   = mkEl('defs', {});
+  var filter = mkEl('filter', {
+    id: 'crt-chroma',
+    x: '-3%', width: '106%',
+    y: '0%',  height: '100%',
+    'color-interpolation-filters': 'sRGB'
+  });
+
+  // Canal rouge — extrait puis decale 2px vers la gauche
+  filter.appendChild(mkEl('feColorMatrix', {
+    in: 'SourceGraphic', type: 'matrix',
+    values: '1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0',
+    result: 'R'
+  }));
+  filter.appendChild(mkEl('feOffset',      { in: 'R',      dx: '-1.3', dy: '0', result: 'Rshift'  }));
+  filter.appendChild(mkEl('feGaussianBlur', { in: 'Rshift', stdDeviation: '0.6', result: 'Rsoft' }));
+
+  // Canal vert — reste en place
+  filter.appendChild(mkEl('feColorMatrix', {
+    in: 'SourceGraphic', type: 'matrix',
+    values: '0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0',
+    result: 'G'
+  }));
+
+  // Canal bleu — extrait puis decale 2px vers la droite
+  filter.appendChild(mkEl('feColorMatrix', {
+    in: 'SourceGraphic', type: 'matrix',
+    values: '0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0',
+    result: 'B'
+  }));
+  filter.appendChild(mkEl('feOffset',      { in: 'B',      dx: '1.3',  dy: '0', result: 'Bshift'  }));
+  filter.appendChild(mkEl('feGaussianBlur', { in: 'Bshift', stdDeviation: '0.6', result: 'Bsoft' }));
+
+  // Recomposition : screen-blend R+G puis +B
+  filter.appendChild(mkEl('feBlend', { in: 'Rsoft', in2: 'G',    mode: 'screen', result: 'RG'  }));
+  filter.appendChild(mkEl('feBlend', { in: 'RG',    in2: 'Bsoft', mode: 'screen'                }));
+
+  defs.appendChild(filter);
+  svg.appendChild(defs);
+  document.body.appendChild(svg);
+
+  // Application du filtre a l'element <center> de chaque page
+  var centers = document.getElementsByTagName('center');
+  for (var i = 0; i < centers.length; i++) {
+    centers[i].style.filter = 'url(#crt-chroma)';
+  }
+})();
+
 // --- Execution immediate (script en fin de body, DOM pret) ---
 initHeader();      // doit preceder initBasDebit (cree les elements #bandeau-*)
 initFooter();      // doit preceder initBasDebit (cree l'element #pied-de-page)

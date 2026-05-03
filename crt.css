@@ -72,6 +72,18 @@ body::before {
   animation: crt-sweep 14s linear infinite;
 }
 
+/* Phosphor bleed complementaire sur le texte clair
+   Le filtre SVG injecte par jospin.js gere les elements non-texte ;
+   ce text-shadow ajoute un halo doux specifiquement autour des glyphes
+   blancs/jaunes pour renforcer l'impression de bavure. La teinte verte
+   tres legere simule le canal du milieu qui saigne en premier. */
+body {
+  text-shadow:
+    -1px  0    0.8px rgba(255,  30,  30, 0.35),
+     1px  0    0.8px rgba( 30,  30, 255, 0.35),
+     0    0    2px   rgba(  0, 220,  60, 0.12);
+}
+
 /* Vignettage CRT : bords plus sombres, centre lumineux */
 body::after {
   content: '';
