@@ -357,14 +357,24 @@ function initNavigateur() {
     'color-interpolation-filters': 'sRGB'
   });
 
-  // Canal rouge — extrait puis decale 2px vers la gauche
+  // Canal rouge — decalage fixe, c'est le blur qui est anime.
+  // Animer dx deplacait toute la colonne de pixels du bord gauche du conteneur,
+  // donnant l'impression que la page glissait. En animant uniquement stdDeviation
+  // on fait "respirer" le halo colore sans aucun deplacement spatial.
   filter.appendChild(mkEl('feColorMatrix', {
     in: 'SourceGraphic', type: 'matrix',
     values: '1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0',
     result: 'R'
   }));
-  filter.appendChild(mkEl('feOffset',      { in: 'R',      dx: '-1.3', dy: '0', result: 'Rshift'  }));
-  filter.appendChild(mkEl('feGaussianBlur', { in: 'Rshift', stdDeviation: '0.6', result: 'Rsoft' }));
+  filter.appendChild(mkEl('feOffset', { in: 'R', dx: '-1.3', dy: '0', result: 'Rshift' }));
+  var feBlurR = mkEl('feGaussianBlur', { in: 'Rshift', stdDeviation: '0.6', result: 'Rsoft' });
+  feBlurR.appendChild(mkEl('animate', {
+    attributeName: 'stdDeviation',
+    values: '0.6;0.9;0.35;0.75;0.6',
+    dur: '2.3s', repeatCount: 'indefinite', calcMode: 'spline',
+    keySplines: '0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1'
+  }));
+  filter.appendChild(feBlurR);
 
   // Canal vert — reste en place
   filter.appendChild(mkEl('feColorMatrix', {
@@ -373,14 +383,22 @@ function initNavigateur() {
     result: 'G'
   }));
 
-  // Canal bleu — extrait puis decale 2px vers la droite
+  // Canal bleu — decalage fixe, blur anime sur une periode differente de R
+  // pour que les deux halos ne pulsent pas en phase.
   filter.appendChild(mkEl('feColorMatrix', {
     in: 'SourceGraphic', type: 'matrix',
     values: '0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0',
     result: 'B'
   }));
-  filter.appendChild(mkEl('feOffset',      { in: 'B',      dx: '1.3',  dy: '0', result: 'Bshift'  }));
-  filter.appendChild(mkEl('feGaussianBlur', { in: 'Bshift', stdDeviation: '0.6', result: 'Bsoft' }));
+  filter.appendChild(mkEl('feOffset', { in: 'B', dx: '1.3', dy: '0', result: 'Bshift' }));
+  var feBlurB = mkEl('feGaussianBlur', { in: 'Bshift', stdDeviation: '0.6', result: 'Bsoft' });
+  feBlurB.appendChild(mkEl('animate', {
+    attributeName: 'stdDeviation',
+    values: '0.6;0.4;0.85;0.5;0.6',
+    dur: '3.2s', repeatCount: 'indefinite', calcMode: 'spline',
+    keySplines: '0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1'
+  }));
+  filter.appendChild(feBlurB);
 
   // Recomposition : screen-blend R+G puis +B
   filter.appendChild(mkEl('feBlend', { in: 'Rsoft', in2: 'G',    mode: 'screen', result: 'RG'  }));
