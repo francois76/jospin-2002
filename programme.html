@@ -90,26 +90,13 @@
 
   .item-prog {
     padding: 4px 6px;
-    transition: background-color 0.15s;
     cursor: default;
-  }
-  .item-prog:hover {
-    background-color: #FFFFCC;
-    border-left: 3px solid #CC0000;
-    padding-left: 3px;
   }
 
-  /* Mise en evidence des propositions "prophétiques" */
-  .prop-realise {
+  .item-prog-alt {
     padding: 4px 6px;
-    background-color: #FFFFE0;
-    transition: background-color 0.15s;
     cursor: default;
-  }
-  .prop-realise:hover {
-    background-color: #FFFAAA;
-    border-left: 3px solid #FF8800;
-    padding-left: 3px;
+    background-color: #EEF4FF;
   }
 
   @keyframes clignotement {
@@ -161,27 +148,7 @@
 
           <br>
 
-          <!-- Legende -->
-          <table width="166" border="1" cellpadding="3" cellspacing="0" bordercolor="#CC6600">
-            <tr><td bgcolor="#CC6600" align="center">
-              <font face="Arial" size="2" color="#FFFFFF"><b>LEGENDE</b></font>
-            </td></tr>
-            <tr><td bgcolor="#FFFAEE">
-              <font face="Arial" size="1">
-                <table border="0" cellpadding="2" cellspacing="0">
-                  <tr>
-                    <td width="14" bgcolor="#FFFFE0" style="border:1px solid #CC8800;">&nbsp;</td>
-                    <td><font face="Arial" size="1">&nbsp;Proposition<br>&nbsp;remarquable !</font></td>
-                  </tr>
-                  <tr><td colspan="2"><br></td></tr>
-                  <tr>
-                    <td width="14" bgcolor="#F5FFF5" style="border:1px solid #006600;">&nbsp;</td>
-                    <td><font face="Arial" size="1">&nbsp;Proposition<br>&nbsp;ordinaire</font></td>
-                  </tr>
-                </table>
-              </font>
-            </td></tr>
-          </table>
+
 
         </td><!-- fin colonne gauche -->
 
@@ -219,7 +186,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>1</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Reduction du temps de travail a <b>35 heures</b> pour tous les salaries
                   <font size="1" color="#888888"><i>(deja en cours, a finaliser)</i></font>
@@ -230,7 +197,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>2</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Creation de <b>700 000 emplois-jeunes</b> dans le secteur public et associatif
                 </font>
@@ -240,7 +207,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>3</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Instaurer un <b>Service Minimum dans les transports</b> en cas de greve
                 </font>
@@ -250,7 +217,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>4</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   <span class="badge-nouveau">NOUVEAU</span>&nbsp;
                   Favoriser le <b>teletravail</b> pour les emplois de bureau
@@ -261,7 +228,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>5</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Creer un <b>Revenu Minimum d'Activite</b> pour les personnes eloignees de l'emploi
                 </font>
@@ -271,7 +238,7 @@
               <td width="20" bgcolor="#CC3333" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>6</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Augmentation du SMIC de <b>+10% en 5 ans</b>, indexe sur la croissance
                 </font>
@@ -292,7 +259,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>7</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   <span class="badge-nouveau">NOUVEAU</span>&nbsp;
                   Internet haut debit (<b>ADSL</b>) dans toutes les communes de France d'ici 2007
@@ -303,7 +270,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>8</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   <span class="badge-nouveau">NOUVEAU</span>&nbsp;
                   Un <b>terminal numerique personnel</b> pour chaque lyceen de France &mdash; des appareils de nouvelle generation, legers, connectes, et equipes d'ecrans reactifs au toucher pour un apprentissage interactif
@@ -314,7 +281,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>9</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Creer un <b>identifiant numerique unique du citoyen</b> pour simplifier
                   les demarches administratives &mdash; accessible via Minitel <i>ou</i> Internet
@@ -325,7 +292,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>10</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   <span class="badge-nouveau">NOUVEAU</span>&nbsp;
                   Legaliser la <b>carte d'identite electronique</b> avec puce numerique securisee
@@ -336,7 +303,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>11</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Permettre la <b>declaration d'impots par Internet</b> pour les contribuables
                   equipes d'un ordinateur et d'une connexion dial-up
@@ -347,7 +314,7 @@
               <td width="20" bgcolor="#0000AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>12</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Developper le <b>commerce electronique francais</b> face a la concurrence
                   americaine &mdash; creer une taxe sur Ebay.com
@@ -369,7 +336,7 @@
               <td width="20" bgcolor="#008800" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>13</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Extension de la <b>Couverture Maladie Universelle</b> (CMU) aux sans-papiers en situation reguliere
                 </font>
@@ -379,7 +346,7 @@
               <td width="20" bgcolor="#008800" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>14</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Interdire la <b>cigarette dans les lieux publics</b> d'ici 2010
                 </font>
@@ -389,7 +356,7 @@
               <td width="20" bgcolor="#008800" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>15</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Lancer un plan <b>"Hopital 2010"</b> avec construction de 50 nouveaux hopitaux
                   et recrutement de 30 000 infirmiers
@@ -400,7 +367,7 @@
               <td width="20" bgcolor="#008800" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>16</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Creer un <b>dossier medical informatise</b> accessible par tous les medecins
                   &mdash; sur floppy disk 3,5 pouces ou, pour les plus technophiles, par CD-Rom
@@ -422,7 +389,7 @@
               <td width="20" bgcolor="#AA00AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>17</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   <span class="badge-nouveau">NOUVEAU</span>&nbsp;
                   Ouvrir le <b>mariage civil aux couples de meme sexe</b>
@@ -433,7 +400,7 @@
               <td width="20" bgcolor="#AA00AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>18</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Instituer des <b>quotas de parite femme/homme</b> dans les listes electorales
                 </font>
@@ -443,7 +410,7 @@
               <td width="20" bgcolor="#AA00AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>19</b></font>
               </td>
-              <td class="item-prog" bgcolor="#F5FFF5">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Creer un <b>Haut Commissariat a la Diversite</b> pour lutter contre les discriminations
                   a l'embauche et au logement
@@ -454,7 +421,7 @@
               <td width="20" bgcolor="#AA00AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>20</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Reforme en profondeur de la <b>police de proximite</b> pour un meilleur ancrage dans les quartiers
                 </font>
@@ -464,7 +431,7 @@
               <td width="20" bgcolor="#AA00AA" align="center" valign="top">
                 <font face="Arial" size="1" color="#FFFFFF"><b>21</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   <b>Interdire les portables dans les ecoles primaires</b> et colleges
                 </font>
@@ -474,53 +441,18 @@
 
           <br>
 
-          <!-- CHAPITRE 5 : FARFELU -->
-          <table width="618" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF6600">
-            <tr bgcolor="#FF6600">
+          <!-- CHAPITRE 5 : TRANSPORT ET INFRASTRUCTURE -->
+          <table width="618" border="1" cellpadding="0" cellspacing="0" bordercolor="#336600">
+            <tr bgcolor="#336600">
               <td colspan="2">
-                <font face="Arial Black, Arial" size="3" color="#FFFFFF">&nbsp;&#9658; CHAPITRE 5 &mdash; PROPOSITIONS INNOVANTES (BONUS)</font>
+                <font face="Arial Black, Arial" size="3" color="#FFFFFF">&nbsp;&#9658; CHAPITRE 5 &mdash; TRANSPORT ET INFRASTRUCTURE</font>
               </td>
             </tr>
             <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
+              <td width="20" bgcolor="#448800" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>22</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFF5E0">
-                <font face="Arial" size="2">
-                  Creer un <b>Ministere du Temps Libre</b> charge de veiller a ce que les Francais
-                  profitent bien de leurs 35 heures nouvellement liberees
-                </font>
-              </td>
-            </tr>
-            <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
-              </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
-                <font face="Arial" size="2">
-                  Rendre obligatoire l'<b>installation de Windows 98</b> dans tous les cybercafes
-                  recevant des fonds publics &mdash;
-                  <i>en partenariat avec M. Bill Gates, que nous avons contacte par e-mail</i>
-                </font>
-              </td>
-            </tr>
-            <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
-              </td>
-              <td class="item-prog" bgcolor="#FFF5E0">
-                <font face="Arial" size="2">
-                  Creer un <b>"Passeport Internet"</b> gratuit pour tous les Francais,
-                  permettant d'acceder a un boite e-mail @france.fr
-                  &mdash; <i>6 Mo de stockage, c'est amplement suffisant</i>
-                </font>
-              </td>
-            </tr>
-            <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
-              </td>
-              <td class="item-prog" bgcolor="#FFFFFF">
+              <td class="item-prog">
                 <font face="Arial" size="2">
                   Lancer un <b>TGV Paris-Berlin</b> en 3h30 pour renforcer l'amitie franco-allemande
                   &mdash; <i>avec un wagon "bureau" equipe de prises de courant</i>
@@ -528,10 +460,43 @@
               </td>
             </tr>
             <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
+              <td width="20" bgcolor="#448800" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>23</b></font>
               </td>
-              <td class="item-prog" bgcolor="#FFF5E0">
+              <td class="item-prog-alt">
+                <font face="Arial" size="2">
+                  Developper les <b>energies renouvelables</b> : l'eolien et le solaire pourraient
+                  couvrir jusqu'a 5% de nos besoins en electricite d'ici 2020.
+                </font>
+              </td>
+            </tr>
+          </table>
+
+          <br>
+
+          <!-- CHAPITRE 6 : CULTURE ET VIE QUOTIDIENNE -->
+          <table width="618" border="1" cellpadding="0" cellspacing="0" bordercolor="#884400">
+            <tr bgcolor="#884400">
+              <td colspan="2">
+                <font face="Arial Black, Arial" size="3" color="#FFFFFF">&nbsp;&#9658; CHAPITRE 6 &mdash; CULTURE ET VIE QUOTIDIENNE</font>
+              </td>
+            </tr>
+            <tr>
+              <td width="20" bgcolor="#AA5500" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>24</b></font>
+              </td>
+              <td class="item-prog">
+                <font face="Arial" size="2">
+                  Creer un <b>Ministere du Temps Libre</b> charge de veiller a ce que les Francais
+                  profitent bien de leurs 35 heures nouvellement liberees
+                </font>
+              </td>
+            </tr>
+            <tr>
+              <td width="20" bgcolor="#AA5500" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>25</b></font>
+              </td>
+              <td class="item-prog-alt">
                 <font face="Arial" size="2">
                   Interdire les <b>"jeux video violents"</b> aux moins de 18 ans
                   &mdash; apres consultation d'un rapport parlementaire sur Quake III Arena,
@@ -540,13 +505,26 @@
               </td>
             </tr>
             <tr>
-              <td width="20" bgcolor="#FF8800" align="center" valign="top">
-                <font face="Arial" size="1" color="#FFFFFF"><b>&#9733;</b></font>
+              <td width="20" bgcolor="#AA5500" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>26</b></font>
               </td>
-              <td class="prop-realise" bgcolor="#FFFFE0">
+              <td class="item-prog">
                 <font face="Arial" size="2">
-                  Developper les <b>energies renouvelables</b> : l'eolien et le solaire pourraient
-                  couvrir jusqu'a 5% de nos besoins en electricite d'ici 2020.
+                  Rendre obligatoire l'<b>installation de Windows 98</b> dans tous les cybercafes
+                  recevant des fonds publics &mdash;
+                  <i>en partenariat avec M. Bill Gates, que nous avons contacte par e-mail</i>
+                </font>
+              </td>
+            </tr>
+            <tr>
+              <td width="20" bgcolor="#AA5500" align="center" valign="top">
+                <font face="Arial" size="1" color="#FFFFFF"><b>27</b></font>
+              </td>
+              <td class="item-prog-alt">
+                <font face="Arial" size="2">
+                  Creer un <b>"Passeport Internet"</b> gratuit pour tous les Francais,
+                  permettant d'acceder a une boite e-mail @france.fr
+                  &mdash; <i>6 Mo de stockage, c'est amplement suffisant</i>
                 </font>
               </td>
             </tr>
